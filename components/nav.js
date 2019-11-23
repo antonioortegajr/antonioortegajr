@@ -12,7 +12,7 @@ const links = [
   { href: 'https://github.com/antonioortegajr', label: 'GitHub', num: 0 },
   {href: 'https://twitter.com/antonioortegajr', label: 'twitter', num: 1 },
   { href: 'https://facebook.com/antonioortegajr', label: 'facebook', num: 2 },
-  { href: 'https://linkedin.com/antonioortegajr', label: 'linkedin', num: 3 },
+  { href: 'https://www.linkedin.com/in/antonioortegajr/', label: 'linkedin', num: 3 },
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`
   return link
