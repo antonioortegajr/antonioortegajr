@@ -66,15 +66,15 @@ const Home = () => (
       <h2>About Me: </h2>
       <div className='row'>
           <p>
-            I started coding on a Commodore 64 when I was a kid. I continue to learn and help others learn about technolgies.
-            I host a monthly meet up here in Eugene, OR and speak about tech around town. I work as a engineer at a real estate data company.
+            I started coding on a Commodore 64 when I was a kid. I continue to learn and help others learn about technologies.
+            I host a monthly meet up here in Eugene, OR and speak about tech around town. I work as an engineer at a real estate data company.
           </p>
       </div>
       <h2>Tools I use often: </h2>
       <div className='row'>
           <p>
             I use these tools often in my job, and my side projects. 
-            I use many other technologies, but these seem to tbe the ones I use the most often. 
+            I use many other technologies, but these seem to the the ones I use the most often. 
             I like to experiment with many kinds of technologies as well (this site is Next.js/React.js). 
           </p>
       </div>
