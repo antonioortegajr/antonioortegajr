@@ -47,7 +47,7 @@ const Home = () => (
         I write code things and use things for code like aws. I also volunteer for code things.
       </p>
       <div className='row'>
-        <a href='https://eugnewebdevs.com' className='card'>
+        <a href='https://eugenewebdevs.com' className='card'>
           <h3>Eugene Web Devs &rarr;</h3>
           <p>I am the organizer for a local web developers meetup <FontAwesomeIcon width={20} height={20} icon={ faMeetup } />.</p>
         </a>
