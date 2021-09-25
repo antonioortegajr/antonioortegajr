@@ -1,7 +1,8 @@
-# antonioortegajr
+# Personal Website
 
 ## About
 
-This is a personal website.
+Personal Website for me, antonioortegajr. Visit the site read stuff about me and what I do for a living.
 
-Made with next.js
+Web site with next.js
+
