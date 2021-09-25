@@ -7,8 +7,7 @@ import {
   faTwitter,
   faAws,
   faJs,
-  faVuejs,
-  faPhp,
+  faReact,
   faDocker,
   faGitAlt,
   faGithub,
@@ -66,8 +65,7 @@ const Home = () => (
       <h2>About Me: </h2>
       <div className='row'>
           <p>
-            I started coding on a Commodore 64 when I was a kid. I continue to learn and help others learn about technologies.
-            I host a monthly meet up here in Eugene, OR and speak about tech around town. I work as an engineer at a real estate data company.
+          I started coding on a Commodore 64 when I was a kid. I continue to learn and help others learn about technologies. I host a monthly meet up here in Eugene, OR and speak about tech around town. I work remotely as a senior engineer.
           </p>
       </div>
       <h2>Tools I use often: </h2>
@@ -75,16 +73,15 @@ const Home = () => (
           <p>
             I use these tools often in my job, and my side projects. 
             I use many other technologies, but these seem to the the ones I use the most often. 
-            I like to experiment with many kinds of technologies as well (this site is Next.js/React.js). 
+            I enjoy experimenting with many other kinds of technologies as well like augmented reality and machine learning.
           </p>
       </div>
       <div id="tech-icons" className='row'>
           <FontAwesomeIcon width={50} height={50} icon={ faAws } />
           <FontAwesomeIcon width={50} height={50} icon={ faGitAlt } />
           <FontAwesomeIcon width={50} height={50} icon={ faJs } />
-          <FontAwesomeIcon width={50} height={50} icon={ faVuejs } />
+          <FontAwesomeIcon width={50} height={50} icon={ faReact } />
           <FontAwesomeIcon width={50} height={50} icon={ faDocker } />
-          <FontAwesomeIcon width={50} height={50} icon={ faPhp } />
       </div>
       <h2>When I am not coding: </h2>
       <div className='row'>
