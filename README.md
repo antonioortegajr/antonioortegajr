@@ -15,3 +15,7 @@ From directory root
 Run on local
 
 `npm run dev`
+
+## Template
+
+This template was used to start this project: https://github.com/tretapey/svelte-pwa
