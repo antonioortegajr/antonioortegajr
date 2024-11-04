@@ -3,11 +3,9 @@ import Head from 'next/head'
 import Nav from '../components/nav'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faFacebook,
-  faTwitter,
   faAws,
   faJs,
-  faReact,
+  faPython,
   faDocker,
   faGitAlt,
   faGithub,
@@ -41,7 +39,7 @@ const Home = () => (
       </div>
       <h1 className='title'>Antonio Ortega Jr</h1>
       <p className='description'>
-        I am an engineer at <a className="rainbow" href="https://twentyideas.com">Twenty Ideas</a> in Eugene Oregon.
+        I am an AI engineer at <a className="rainbow" href="https://www.propertyradar.com/">Property Radar</a> living in Eugene Oregon.
       </p>
       <p className='description'>
         I write code things and use things for code like aws. I also volunteer for code things.
@@ -73,15 +71,15 @@ const Home = () => (
       <div className='row'>
           <p>
             I use these tools often in my job, and my side projects. 
-            I use many other technologies, but these seem to the the ones I use the most often. 
-            I enjoy experimenting with many other kinds of technologies as well like augmented reality and machine learning.
+            I use many other technologies, but these seem to the the ones I use the most often at teh moment. 
+            I enjoy experimenting with many other kinds of technologies as well like mobile apps and AI.
           </p>
       </div>
       <div id="tech-icons" className='row'>
           <FontAwesomeIcon width={50} height={50} icon={ faAws } />
           <FontAwesomeIcon width={50} height={50} icon={ faGitAlt } />
           <FontAwesomeIcon width={50} height={50} icon={ faJs } />
-          <FontAwesomeIcon width={50} height={50} icon={ faReact } />
+          <FontAwesomeIcon width={50} height={50} icon={ faPython } />
           <FontAwesomeIcon width={50} height={50} icon={ faDocker } />
       </div>
       <h2>When I am not coding: </h2>
