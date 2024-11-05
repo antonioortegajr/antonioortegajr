@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/Nav'
 import ProfilePic from '../components/ProfilePic'
+import Card from '../components/Card'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faAws,
@@ -46,21 +47,22 @@ const Home = () => (
         I write code things and use things for code like aws. I also volunteer for code things.
       </p>
       <div className='row'>
-        <a href='https://eugenewebdevs.com' className='card'>
-          <h3>Eugene Web Devs &rarr;</h3>
-          <p>I am the organizer for a local web developers meetup <FontAwesomeIcon width={20} height={20} icon={ faMeetup } />.</p>
-        </a>
-        <a href='https://hackforacause.org' className='card'>
-          <h3>Hack for a Cause &rarr;</h3>
-          <p>Contributing organizer of local civic themed hackathon.</p>
-        </a>
-        <a
+        <Card
+          href='https://eugenewebdevs.com'
+          title='Eugene Web Devs '
+          description='I am the organizer for a local web developers meetup'
+        />
+        <Card
+          href='https://hackforacause.org'
+          description='Contributing organizer of local civic themed hackathon.'
+          title='Hack for a Cause '
+        />
+        <Card
           href='https://github.com/antonioortegajr'
-          className='card'
-        >
-          <h3>Code On GitHub &rarr;</h3>
-          <p>My code fun on <FontAwesomeIcon width={20} height={20} icon={ faGithub } />.</p>
-        </a>
+          title='Code On GitHub '
+          description='My code fun on '
+          icon={faGithub}
+        />
       </div>
       <h2>About Me: </h2>
       <div className='row'>
@@ -121,31 +123,6 @@ const Home = () => (
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        min-height: 100px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 3px solid #9b9b9b;
-      }
-      .card:hover {
-        border: 3px solid transparent;
-        border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
-        border-image-slice: 1;
-      }
-      .card h3 {
-        margin: 0;
-        color: #1b5982;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
       }
       #hero-images {
         padding-left:10%;
