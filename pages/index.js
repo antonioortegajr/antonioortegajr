@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import Nav from '../components/nav'
+import Nav from '../components/Nav'
+import ProfilePic from '../components/ProfilePic'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faAws,
@@ -24,7 +25,7 @@ const Home = () => (
 
     <div className='hero'>
       <div id='hero-images'>
-        <img id='me' src='/me.jpg'  alt='my-face' />
+        <ProfilePic />
         <code id='bunny' className="rainbow">
         |￣￣￣￣￣￣|<br/>
         |    What&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>
@@ -151,14 +152,6 @@ const Home = () => (
         float: left;
         width: 100%;
       }
-      #me {
-        float:left;
-        max-width: 270px;
-        border-radius: 50%;
-        border: none;
-        margin:0;
-        padding:0;
-      }
       #bunny {
         float:right;
         width: 200px;
@@ -179,11 +172,6 @@ const Home = () => (
           float: right;
           padding-right: 0%;
           width: 40%;
-        }
-      }
-      @media only screen and (max-width: 600px) {
-        #me {
-          padding-right: 10px;
         }
       }
       @media only screen and (max-width: 337px) {
