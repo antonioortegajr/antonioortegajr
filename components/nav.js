@@ -18,13 +18,13 @@ const links = [
   return link
 })
 
-const inconsArray = [faGithub, faTwitter, faFacebook, faLinkedin]
+const iconsArray = [faGithub, faTwitter, faFacebook, faLinkedin]
 const Nav = () => (
   <nav>
     <ul>
       {links.map(({ key, href, label, num}) => (
         <li key={key}>
-          <a className="rainbow-hover" href={href}><FontAwesomeIcon width={20} height={20} icon={ inconsArray[num] } /> {label}</a>
+          <a className="rainbow-hover" href={href}><FontAwesomeIcon width={20} height={20} icon={ iconsArray[num] } /> {label}</a>
         </li>
       ))}
     </ul>
