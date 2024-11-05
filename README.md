@@ -2,7 +2,7 @@
 
 ## About
 
-Personal Website for me, antonioortegajr. Visit the site read stuff about me and what I do for a living and fun.
+Personal website for me, antonioortegajr. Visit the site read stuff about me and what I do for a living and fun.
 
 Live at [here](https://antonioortegajr.com).
 
