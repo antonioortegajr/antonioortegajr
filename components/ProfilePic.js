@@ -1,8 +1,8 @@
-const ProfilePic = () => (
+const ProfilePic = ({img}) => (
     <div>
         <img id="me"
-            src='/me.jpg'
-            alt='my-face'
+            src={img}
+            alt='antonio ortega jr'
         />
         <style jsx>{`
              #me {

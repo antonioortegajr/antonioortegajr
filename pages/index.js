@@ -25,7 +25,7 @@ const Home = () => (
 
     <div className='hero'>
       <div id='hero-images'>
-        <ProfilePic />
+        <ProfilePic img='/me.jpg'/>
         <code id='bunny' className="rainbow">
         |￣￣￣￣￣￣|<br/>
         |    What&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>
