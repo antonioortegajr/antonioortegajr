@@ -4,7 +4,7 @@
 
 Personal website for me, antonioortegajr. Visit the site read stuff about me and what I do for a living and fun.
 
-Live at [here](https://antonioortegajr.com).
+Live [here](https://antonioortegajr.com).
 
 Web site with [next.js](https://nextjs.org/)
 

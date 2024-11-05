@@ -71,7 +71,7 @@ const Home = () => (
       <div className='row'>
           <p>
             I use these tools often in my job, and my side projects. 
-            I use many other technologies, but these seem to the the ones I use the most often at teh moment. 
+            I use many other technologies, but these seem to the the ones I use the most often at the moment. 
             I enjoy experimenting with many other kinds of technologies as well like mobile apps and AI.
           </p>
       </div>
