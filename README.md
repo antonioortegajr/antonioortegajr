@@ -27,15 +27,15 @@ Live [here](https://antonioortegajr.com).
 
 Web site with [next.js](https://nextjs.org/)
 
-# Hosted 
+## Site Hosting 
 
 Right here via GitHub pages.
 
-## CI CD
+## Site CI CD
 
 Github Actions for deployment to github pages. See nextjs.yml for the configuration.
 
-## Local Development
+## Local Site Development
 
 From directory root
 
