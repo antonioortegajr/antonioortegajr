@@ -47,4 +47,3 @@ Run on local
 
 `npm run dev`
 
-NOTE: the svg in the"Tools I use often section" are small on local dev, but appear the intended size on live. Not sure why.
