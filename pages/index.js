@@ -64,13 +64,13 @@ const Home = () => (
           icon={faGithub}
         />
       </div>
-      <h2>About Me: </h2>
+      <h2>About Me</h2>
       <div className='row'>
           <p>
           I started coding on a Commodore 64 when I was a kid. I continue to learn and help others learn about technologies. I host a monthly meet up here in Eugene, OR and speak about tech around town. I work remotely as a senior engineer.
           </p>
       </div>
-      <h2>Tools I use often: </h2>
+      <h2>Tools I Use Often</h2>
       <div className='row'>
           <p>
             I use these tools often in my job, and my side projects. 
@@ -79,13 +79,13 @@ const Home = () => (
           </p>
       </div>
       <div id="tech-icons" className='row'>
-          <FontAwesomeIcon width={50} height={50} icon={ faAws } />
-          <FontAwesomeIcon width={50} height={50} icon={ faGitAlt } />
-          <FontAwesomeIcon width={50} height={50} icon={ faJs } />
-          <FontAwesomeIcon width={50} height={50} icon={ faPython } />
-          <FontAwesomeIcon width={50} height={50} icon={ faDocker } />
+          <FontAwesomeIcon size="3x" icon={ faAws } />
+          <FontAwesomeIcon size="3x" icon={ faGitAlt } />
+          <FontAwesomeIcon size="3x" icon={ faJs } />
+          <FontAwesomeIcon size="3x" icon={ faPython } />
+          <FontAwesomeIcon size="3x" icon={ faDocker } />
       </div>
-      <h2>When I am not coding: </h2>
+      <h2>When I'm Not Coding</h2>
       <div className='row'>
           <p>
             You can find me at the local comic book shop or watching sports. I often am speaking about tech as well. 
