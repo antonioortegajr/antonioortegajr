@@ -79,11 +79,11 @@ const Home = () => (
           </p>
       </div>
       <div id="tech-icons" className='row'>
-          <FontAwesomeIcon width={50} height={50} icon={ faAws } />
-          <FontAwesomeIcon width={50} height={50} icon={ faGitAlt } />
-          <FontAwesomeIcon width={50} height={50} icon={ faJs } />
-          <FontAwesomeIcon width={50} height={50} icon={ faPython } />
-          <FontAwesomeIcon width={50} height={50} icon={ faDocker } />
+          <FontAwesomeIcon size="3x" icon={ faAws } />
+          <FontAwesomeIcon size="3x" icon={ faGitAlt } />
+          <FontAwesomeIcon size="3x" icon={ faJs } />
+          <FontAwesomeIcon size="3x" icon={ faPython } />
+          <FontAwesomeIcon size="3x" icon={ faDocker } />
       </div>
       <h2>When I am not coding: </h2>
       <div className='row'>
