@@ -1,10 +1,9 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Card = ({ href, title, description, icon }) => (
   <a href={href} className="card">
     <h3>{title} &rarr;</h3>
-    <p style={{color:'#c5c3c9'}}>{description} <FontAwesomeIcon width={50} height={50} icon={icon} /></p>
+    <p style={{color:'#c5c3c9'}}>{description} <FontAwesomeIcon size='lg' icon={icon} /></p>
     <style jsx>{`
     .card {
         padding: 18px 18px 24px;
@@ -31,9 +30,8 @@ const Card = ({ href, title, description, icon }) => (
         font-size: 13px;
         color: #333;
       }
-  `}</style>    
+    `}</style>    
   </a>
-    
 );
 
 export default Card;
