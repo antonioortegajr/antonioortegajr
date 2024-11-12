@@ -39,6 +39,8 @@ Github Actions for deployment to github pages. See nextjs.yml for the configurat
 
 ## Local Site Development
 
+### Local from repo
+
 From directory root
 
 `npm i`
@@ -46,4 +48,14 @@ From directory root
 Run on local
 
 `npm run dev`
+
+Visit: http://localhost:3000/
+
+### Docker
+
+From directory root
+
+`docker compose up`
+
+Visit: http://localhost:3000/
 
