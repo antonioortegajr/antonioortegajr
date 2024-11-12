@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const SocialLink = ({link, icon}) => (
     <div>
         <li>
-          <a className="rainbow-hover" href={link}><FontAwesomeIcon size='lg' height={20} icon={ icon } /> </a>
+          <a className="social-link rainbow-hover" href={link}><FontAwesomeIcon size='lg' icon={ icon } /> </a>
         </li>
         <style jsx>{`
             li {
