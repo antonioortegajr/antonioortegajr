@@ -119,7 +119,7 @@ const Home = () => (
       }
       .row, h2{
         max-width: 880px;
-        margin: 80px auto 40px;
+        margin: 60px auto 40px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
