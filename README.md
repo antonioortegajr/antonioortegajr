@@ -37,13 +37,9 @@ Right here via GitHub pages.
 
 Github Actions for deployment to github pages. See nextjs.yml for the configuration.
 
-## Local Site Development
+## :computer: Run Locally
 
-
-
-### Local Development :computer:
-
-From root directory :open_file_folder:
+### From root directory :open_file_folder:
 
 `npm i`
 
@@ -53,7 +49,7 @@ Run on local
 
 Visit: http://localhost:3000/
 
-### Docker :whale:
+### Via Docker :whale:
 
 From directory root
 
