@@ -31,9 +31,8 @@ const Card = ({ href, title, description, icon }) => (
         font-size: 13px;
         color: #333;
       }
-  `}</style>    
+    `}</style>    
   </a>
-    
 );
 
 export default Card;

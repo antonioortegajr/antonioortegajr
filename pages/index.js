@@ -51,6 +51,7 @@ const Home = () => (
           href='https://eugenewebdevs.com'
           title='Eugene Web Devs '
           description='I am the organizer for a local web developers meetup'
+          icon={faMeetup}
         />
         <Card
           href='https://hackforacause.org'

@@ -1,12 +1,15 @@
 // components/ProfilePic.test.js
 import React from 'react';
 import { render } from '@testing-library/react';
-import ProfilePic from '../../components/ProfilePic';
 import '@testing-library/jest-dom'
+import ProfilePic from '../../components/ProfilePic';
 
 describe('ProfilePic component', () => {
-  it('renders an image', () => {
-    const { getByAltText } = render(<ProfilePic />);
-    expect(getByAltText('antonio ortega jr')).toBeInTheDocument();
-  });
+    // Test the ProfilePic component with a sample image
+    it('renders an image with the correct src and alt text', () => {
+        const { getByAltText } = render(<ProfilePic img="https://picsum.photos/id/237/200/300" />);
+        const image = getByAltText('antonio ortega jr');
+        expect(image).toBeInTheDocument();
+        expect(image.src).toContain('https://picsum.photos/id/237/200/300');
+    });
 });
