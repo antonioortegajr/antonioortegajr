@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faFacebook,
@@ -41,6 +40,7 @@ const Nav = () => (
       }
       nav {
         text-align: center;
+        margin-bottom:35px;
       }
       ul {
         display: flex;
