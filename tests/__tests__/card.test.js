@@ -2,12 +2,11 @@ import React from 'react';
 import { getByTestId, render } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import Card from '../../components/Card';
-
 import {
     faGithub,
   } from '@fortawesome/free-brands-svg-icons'
 
-describe('Card component', () => {
+describe('Card component returns Title and Description', () => {
     // Test the Card component with a sample image
     it('renders a card with the correct title, description, and icon', () => {
 

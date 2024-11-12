@@ -4,8 +4,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import ProfilePic from '../../components/ProfilePic';
 
-describe('ProfilePic component', () => {
-    // Test the ProfilePic component with a sample image
+describe('ProfilePic component returns a sample image', () => {
     it('renders an image with the correct src and alt text', () => {
         const { getByAltText } = render(<ProfilePic img="https://picsum.photos/id/237/200/300" />);
         const image = getByAltText('antonio ortega jr');
