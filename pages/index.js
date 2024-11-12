@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Nav from '../components/Nav'
 import ProfilePic from '../components/ProfilePic'
 import Card from '../components/Card'
+import RainbowBunny from '../components/RainbowBunny'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faAws,
@@ -27,17 +28,7 @@ const Home = () => (
     <div className='hero'>
       <div id='hero-images'>
         <ProfilePic img='/me.jpg'/>
-        <code id='bunny' className="rainbow">
-        |￣￣￣￣￣￣|<br/>
-        |    What&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>
-        |    Do&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br/>
-        |  I DO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>
-        |＿＿＿＿＿_|<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|| <br/>
-        (\__/)&nbsp;|| <br/>
-        (•ㅅ•) ||<br/>
-        / 　 づ<br/>
-        </code>
+        <RainbowBunny />
       </div>
       <h1 className='title'>Antonio Ortega Jr</h1>
       <p className='description'>
@@ -129,12 +120,6 @@ const Home = () => (
         padding-left:10%;
         float: left;
         width: 100%;
-      }
-      #bunny {
-        float:right;
-        width: 200px;
-        padding-right:15%;
-        color: #c5c3c9
       }
       .rainbow{
         background: red;
