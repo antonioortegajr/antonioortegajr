@@ -57,12 +57,10 @@ const Four = () => (
                 }
                     .back-button:hover {
                     background-color: #0d8dd4;
-                } 
-                a {
-                    
-                    text-decoration: none;
+                }
+                a.back-button {
                     color: #067df7;
-                }    
+                }
             `}</style>
         </div>
     </div>
