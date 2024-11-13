@@ -47,3 +47,9 @@ Run on local
 
 `npm run dev`
 
+## Tests
+
+Jest for testing
+
+`npm run test`
+

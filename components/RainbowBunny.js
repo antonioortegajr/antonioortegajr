@@ -27,6 +27,23 @@ const RainbowBunny = () => (
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent; 
             }
+            @media only screen and (max-width: 600px) {
+                #bunny {
+                float: right;
+                padding-right: 0%;
+                width: 40%;
+                }
+            }
+            @media only screen and (max-width: 337px) {
+                #bunny {
+                float: right;
+                padding-right: 0%;
+                }
+            @media only screen and (max-width: 320px) {
+                #bunny {
+                display: none;
+                }
+            }
         `}</style>
     </div> 
 )
