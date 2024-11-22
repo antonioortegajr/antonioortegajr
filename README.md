@@ -57,3 +57,10 @@ From directory root
 
 Visit: http://localhost:3000/
 
+## Tests
+
+Jest for testing
+
+`npm run test`
+
+
