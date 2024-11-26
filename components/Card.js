@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Card = ({ href, title, description, icon }) => (
   <a href={href} className="card">
     <h3>{title} &rarr;</h3>
-    <p style={{color:'#c5c3c9'}}>{description} <FontAwesomeIcon size='lg' icon={icon} /></p>
+    <p style={{color:'#c5c3c9'}}>{description} <FontAwesomeIcon size='sm' icon={icon} width="0.875em" /></p>
     <style jsx>{`
     .card {
         padding: 18px 18px 24px;
