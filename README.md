@@ -31,7 +31,7 @@ Web site created using [next.js](https://nextjs.org/)
 
 ## Site Hosting
 
-Right here via GitHub pages.
+Right here via GitHub pages!
 
 ## Site CI CD :rocket:
 
