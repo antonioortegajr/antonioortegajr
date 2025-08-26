@@ -32,7 +32,7 @@ const Home = () => (
       </div>
       <h1 className='title'>Antonio Ortega Jr</h1>
       <p className='description'>
-        I am an Applications Reliability Engineer at <a className="rainbow" href="https://www.propertyradar.com/">Property Radar</a> living in Eugene Oregon.
+I am an Applications Reliability Engineer at <a className="rainbow" href="https://natera.com">Natera</a> living in Eugene Oregon.
       </p>
       <p className='description'>
         I write code things and use things for code like aws. I also volunteer for code things.
