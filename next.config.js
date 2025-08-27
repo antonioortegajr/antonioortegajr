@@ -5,7 +5,7 @@ const withPWA = require('next-pwa')({
 })
 
 module.exports = withPWA({
-  output: 'export',
+  output: 'out',
   trailingSlash: true,
   images: {
     unoptimized: true
