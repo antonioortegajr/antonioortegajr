@@ -16,7 +16,7 @@ const Four = () => (
             <h1>404</h1>
             <p>Oops! Looks like you're lost in space.</p>
             <p>The page you're looking for isn't here.</p>
-            <a href="/" class="back-button">Go Back Home</a>
+            <a href="/" className="back-button">Go Back Home</a>
             <img src="https://aibadge.org/badges/made-with-ai-blue-green.svg" style={{maxWidth: '75px', marginTop: '20px'}} alt="404" />
             <p>This lame 404 page was generated via ChatGPT.</p>
             <p>Our jobs are safe.</p>
