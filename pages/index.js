@@ -32,21 +32,21 @@ const Home = () => (
       </div>
       <h1 className='title'>Antonio Ortega Jr</h1>
       <p className='description'>
-I am an Applications Reliability Engineer at <a className="rainbow" href="https://natera.com">Natera</a> living in Eugene Oregon.
+I am an Applications Reliability Engineer at <a className="rainbow" href="https://natera.com">Natera</a>, living in Eugene, Oregon.
       </p>
       <p className='description'>
-        I write code things and use things for code like aws. I also volunteer for code things.
+        I write code and use cloud technologies like AWS. I also volunteer for code things.
       </p>
       <div className='row'>
         <Card
           href='https://eugenewebdevs.com'
           title='Eugene Web Devs '
-          description='I am the organizer for a local web developers meetup'
+          description='I am the organizer for a local web developer meetup.'
           icon={faMeetup}
         />
         <Card
           href='https://hackforacause.org'
-          description='Contributing organizer of local civic themed hackathon.'
+          description='I am a contributing organizer for a local civic-themed hackathon.'
           title='Hack for a Cause '
         />
         <Card
@@ -59,15 +59,13 @@ I am an Applications Reliability Engineer at <a className="rainbow" href="https:
       <h2>About Me</h2>
       <div className='row'>
           <p>
-          I started coding on a Commodore 64 when I was a kid. I continue to learn and help others learn about technologies. I host a monthly meet up here in Eugene, OR and speak about tech around town. I work remotely as a senior engineer.
+          I started coding on a Commodore 64 as a kid. I enjoy learning and helping others learn about technology. I host a monthly meetup in Eugene, OR, speak about tech around town, and work remotely as a senior engineer.
           </p>
       </div>
       <h2>Tools I Use Often</h2>
       <div className='row'>
           <p>
-            I use these tools often in my job, and my side projects. 
-            I use many other technologies, but these seem to the the ones I use the most often at the moment. 
-            I enjoy experimenting with many other kinds of technologies as well like mobile apps and AI.
+            I use these tools often in my job and side projects. While I use many other technologies, these are the ones I use most frequently at the moment. I also enjoy experimenting with other technologies like mobile apps and AI.
           </p>
       </div>
       <div id="tech-icons" className='row'>
@@ -80,9 +78,7 @@ I am an Applications Reliability Engineer at <a className="rainbow" href="https:
       <h2>When I'm Not Coding</h2>
       <div className='row'>
           <p>
-            You can find me at the local comic book shop or watching sports. I often am speaking about tech as well. 
-            Here is my <a className="rainbow" href="https://www.youtube.com/watch?v=WVpzpXgt7TA">latest talk on YouTube</a>. 
-            If you have been to one of a Eugene Web Devs event and want to get in contact with me, use one of the social links at the top of the page. 
+            You can find me at the local comic book shop or watching sports. I also speak about tech, and you can find my latest talk on YouTube. If you have been to a Eugene Web Devs event and want to get in contact with me, use one of the social links at the top of the page. 
           </p>
       </div>
     </div>
