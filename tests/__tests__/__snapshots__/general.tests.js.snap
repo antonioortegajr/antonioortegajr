@@ -370,19 +370,19 @@ exports[`Home Page matches the snapshot 1`] = `
       <p
         class="jsx-c163f45a9b619e59 description"
       >
-        I am an AI engineer at 
+        I am an Applications Reliability Engineer at 
         <a
           class="jsx-c163f45a9b619e59 rainbow"
-          href="https://www.propertyradar.com/"
+          href="https://natera.com"
         >
-          Property Radar
+          Natera
         </a>
-         living in Eugene Oregon.
+        , living in Eugene, Oregon.
       </p>
       <p
         class="jsx-c163f45a9b619e59 description"
       >
-        I write code things and use things for code like aws. I also volunteer for code things.
+        I write code and use cloud technologies like AWS. I also volunteer for code things.
       </p>
       <div
         class="jsx-c163f45a9b619e59 row"
@@ -401,7 +401,7 @@ exports[`Home Page matches the snapshot 1`] = `
             class="jsx-32788be9e9e2260c"
             style="color: rgb(197, 195, 201);"
           >
-            I am the organizer for a local web developers meetup
+            I am the organizer for a local web developer meetup.
              
             <svg
               aria-hidden="true"
@@ -435,7 +435,7 @@ exports[`Home Page matches the snapshot 1`] = `
             class="jsx-32788be9e9e2260c"
             style="color: rgb(197, 195, 201);"
           >
-            Contributing organizer of local civic themed hackathon.
+            I am a contributing organizer for a local civic-themed hackathon.
              
           </p>
         </a>
@@ -485,7 +485,7 @@ exports[`Home Page matches the snapshot 1`] = `
         <p
           class="jsx-c163f45a9b619e59"
         >
-          I started coding on a Commodore 64 when I was a kid. I continue to learn and help others learn about technologies. I host a monthly meet up here in Eugene, OR and speak about tech around town. I work remotely as a senior engineer.
+          I started coding on a Commodore 64 as a kid. I enjoy learning and helping others learn about technology. I host a monthly meetup in Eugene, OR, speak about tech around town, and work remotely as a senior engineer.
         </p>
       </div>
       <h2
@@ -499,7 +499,7 @@ exports[`Home Page matches the snapshot 1`] = `
         <p
           class="jsx-c163f45a9b619e59"
         >
-          I use these tools often in my job, and my side projects. I use many other technologies, but these seem to the the ones I use the most often at the moment. I enjoy experimenting with many other kinds of technologies as well like mobile apps and AI.
+          I use these tools often in my job and side projects. While I use many other technologies, these are the ones I use most frequently at the moment. I also enjoy experimenting with other technologies like mobile apps and AI.
         </p>
       </div>
       <div
@@ -593,14 +593,7 @@ exports[`Home Page matches the snapshot 1`] = `
         <p
           class="jsx-c163f45a9b619e59"
         >
-          You can find me at the local comic book shop or watching sports. I often am speaking about tech as well. Here is my 
-          <a
-            class="jsx-c163f45a9b619e59 rainbow"
-            href="https://www.youtube.com/watch?v=WVpzpXgt7TA"
-          >
-            latest talk on YouTube
-          </a>
-          . If you have been to one of a Eugene Web Devs event and want to get in contact with me, use one of the social links at the top of the page.
+          You can find me at the local comic book shop or watching sports. I also speak about tech, and you can find my latest talk on YouTube. If you have been to a Eugene Web Devs event and want to get in contact with me, use one of the social links at the top of the page.
         </p>
       </div>
     </div>
