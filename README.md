@@ -1,5 +1,7 @@
 # Antonio Ortega Jr
 
+Personal website doc: [doc](/docs/thisSite.md)
+
 ## 🌐 Socials:
  [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/antonioortegajr) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/3114130) 
 
@@ -21,4 +23,3 @@
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
-Personal website doc: [doc](/docs/thisSite.md)

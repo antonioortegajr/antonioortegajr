@@ -9,16 +9,22 @@ const SocialLink = ({link, icon, isFirst, isLast}) => {
 
     useEffect(() => {
         if (showQR && linkRef.current) {
-        const rect = linkRef.current.getBoundingClientRect()
-        const windowWidth = window.innerWidth
+            const rect = linkRef.current.getBoundingClientRect()
+            const windowWidth = window.innerWidth
+            const qrWidth = 148 // 128px QR code + 20px padding
 
-        if (isFirst && rect.left < 100) {
-            setQrPosition("right")
-        } else if (isLast && windowWidth - rect.right < 100) {
-            setQrPosition("left")
-        } else {
-            setQrPosition("center")
-        }
+            // Check if QR code would go off screen on the left
+            if (rect.left < qrWidth) {
+                setQrPosition("right")
+            } 
+            // Check if QR code would go off screen on the right
+            else if (windowWidth - rect.right < qrWidth) {
+                setQrPosition("left")
+            } 
+            // Default to center if there's enough space
+            else {
+                setQrPosition("center")
+            }
         }
     }, [showQR, isFirst, isLast])
 
@@ -26,6 +32,7 @@ const SocialLink = ({link, icon, isFirst, isLast}) => {
         <div className="social-link-container">
             <li>
                 <a 
+                    ref={linkRef}
                     className="social-link rainbow-hover" 
                     href={link}
                     onMouseEnter={() => setShowQR(true)}
@@ -35,7 +42,7 @@ const SocialLink = ({link, icon, isFirst, isLast}) => {
                 </a>
             </li>
             {showQR && (
-                <div className="qr-code">
+                <div className={`qr-code ${qrPosition}`}>
                     <QRCode value={link} size={128} />
                 </div>
             )}
