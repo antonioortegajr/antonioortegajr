@@ -4,4 +4,10 @@ const withPWA = require('next-pwa')({
   skipWaiting: true,
 })
 
-module.exports = withPWA({});
+module.exports = withPWA({
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    unoptimized: true
+  }
+});
