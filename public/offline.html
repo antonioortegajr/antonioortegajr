@@ -12,28 +12,53 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #15202b;
+            color: #c5c3c9;
         }
         .container {
             text-align: center;
             padding: 2rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            max-width: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         h1 {
-            color: #666;
+            color: #c5c3c9;
             margin-bottom: 1rem;
+            font-size: 2rem;
         }
         p {
-            color: #888;
+            color: #8899a6;
             line-height: 1.6;
+            margin-bottom: 1rem;
         }
         .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        .retry-btn {
+            background: linear-gradient(45deg, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.2s ease;
+        }
+        .retry-btn:hover {
+            transform: translateY(-2px);
+        }
+        .status {
+            font-size: 0.9rem;
+            color: #8899a6;
+            margin-top: 1rem;
         }
     </style>
 </head>
@@ -42,7 +67,27 @@
         <div class="icon">📶</div>
         <h1>You're Offline</h1>
         <p>It looks like you've lost your internet connection. Don't worry - you can still view the cached version of this site!</p>
-        <p>Check your connection and try refreshing the page.</p>
+        <p>Check your connection and try refreshing the page, or use the button below to retry.</p>
+        <button class="retry-btn" onclick="window.location.reload()">Retry Connection</button>
+        <div class="status">
+            <p>If you continue to see this page, try:</p>
+            <ul style="text-align: left; display: inline-block;">
+                <li>Checking your internet connection</li>
+                <li>Refreshing the page</li>
+                <li>Clearing your browser cache</li>
+            </ul>
+        </div>
     </div>
+    <script>
+        // Check if we're back online
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+        
+        // Update status when connection changes
+        window.addEventListener('offline', () => {
+            console.log('Connection lost');
+        });
+    </script>
 </body>
 </html>
