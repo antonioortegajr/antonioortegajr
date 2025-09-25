@@ -2,13 +2,6 @@
 
 Personal website doc: [doc](/docs/thisSite.md)
 
-## 📱 PWA Features
-This website is a Progressive Web App (PWA) that works offline and can be installed on mobile devices. Features include:
-- **Offline Support**: Works without internet connection
-- **Installable**: Can be added to home screen on mobile devices
-- **Fast Loading**: Cached resources for quick access
-- **Responsive**: Optimized for all screen sizes
-
 ## 🌐 Socials:
  [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/antonioortegajr) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/3114130) 
 
