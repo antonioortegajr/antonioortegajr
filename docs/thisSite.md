@@ -13,6 +13,15 @@ Right here via GitHub pages!
 ## Site CI/CD :rocket:
                                  
 Github Actions for deployment to github pages. See nextjs.yml for the configuration.
+
+📱 PWA Features
+This website is a Progressive Web App (PWA) that works offline and can be installed on mobile devices. Features include:
+
+Offline Support: Works without internet connection
+Installable: Can be added to home screen on mobile devices
+Fast Loading: Cached resources for quick access
+Responsive: Optimized for all screen sizes
+
                                  
 ## :computer: Run Locally
                                  
