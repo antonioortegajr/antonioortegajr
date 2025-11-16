@@ -27,7 +27,7 @@ const Home = () => (
 
     <div className='hero'>
       <div id='hero-images'>
-        <ProfilePic img='/me.jpg'/>
+        <ProfilePic img='/me_ivy.png'/>
         <RainbowBunny />
       </div>
       <h1 className='title'>Antonio Ortega Jr</h1>

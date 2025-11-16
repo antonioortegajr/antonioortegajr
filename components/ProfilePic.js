@@ -7,11 +7,10 @@ const ProfilePic = ({img}) => (
         <style jsx>{`
              #me {
                 float:left;
-                max-width: 270px;
-                border-radius: 50%;
+                max-width: 200px;
+                border-radius: 18%;
                 border: none;
                 margin:0;
-                padding:0;
             }
         `}</style>
     </div>
