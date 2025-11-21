@@ -2,6 +2,16 @@
 
 Personal website doc: [doc](/docs/thisSite.md)
 
+## 🧹 Cache Management
+
+To force a cache refresh in the browser console:
+
+```javascript
+caches.delete('antonio-ortega-v4').then(() => console.log('Cache cleared!'));
+```
+
+The service worker cache expires automatically after 7 days, but you can use this command to manually clear it for testing.
+
 ## 🌐 Socials:
  [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/antonioortegajr) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/3114130) 
 
