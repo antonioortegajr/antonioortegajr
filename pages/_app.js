@@ -4,18 +4,8 @@ import Head from 'next/head';
 
 class MyApp extends App {
   componentDidMount() {
-    // Register service worker for PWA functionality
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then((registration) => {
-            console.log('SW registered: ', registration);
-          })
-          .catch((registrationError) => {
-            console.log('SW registration failed: ', registrationError);
-          });
-      });
-    }
+    // Service worker registration is handled in _document.js
+    // Only registered in production to avoid conflicts with Next.js HMR in development
   }
 
   render() {
