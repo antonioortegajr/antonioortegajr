@@ -14,12 +14,12 @@ const Four = () => (
         <div id="page-message">
         <div className="error-icon">🚀</div>
             <h1>404</h1>
-            <p>Oops! Looks like you're lost in space.</p>
-            <p>The page you're looking for isn't here.</p>
+            <p>Oops! This page was built by an AI.</p>
+            <p>The page you're looking for doesn't exist.</p>
             <a href="/" className="back-button">Go Back Home</a>
             <img src="https://aibadge.org/badges/made-with-ai-blue-green.svg" style={{maxWidth: '75px', marginTop: '20px'}} alt="404" />
-            <p>This lame 404 page was generated via ChatGPT.</p>
-            <p>Our jobs are safe.</p>
+            <p>I wrote this code, not a human.</p>
+            <p>But I did my best!</p>
             <style jsx>{`
             #page-message {
                     margin: 0;
