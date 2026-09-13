@@ -84,6 +84,12 @@ I am an Applications Reliability Engineer at <a className="rainbow" href="https:
           <FontAwesomeIcon size="3x" icon={ faPython } />
           <FontAwesomeIcon size="3x" icon={ faDocker } />
       </div>
+      <h2>AI Integration</h2>
+      <div className='row'>
+          <p>
+            As a software engineer I am focused on making AI help with and do real work. I spend my time connecting models from OpenAI and Claude to build real integrations, designing the guardrails that keep things safe and reliable. I love building those agentic systems, and seeing the real word productivity gains, I get hands-on running local models on small hardware. It keeps me constantly curious about where AI is headed.
+          </p>
+      </div>
       <h2>When I'm Not Coding</h2>
       <div className='row'>
           <p>
