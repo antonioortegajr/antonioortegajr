@@ -1,12 +1,16 @@
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 class MyApp extends App {
   componentDidMount() {
     // Service worker registration is handled in _document.js
     // Only registered in production to avoid conflicts with Next.js HMR in development
   }
+
+  config.autoAddCss = false;
 
   render() {
     const { Component, pageProps } = this.props;
