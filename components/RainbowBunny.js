@@ -19,7 +19,6 @@ const RainbowBunny = () => (
                 color: #c5c3c9
             }
             .rainbow{
-                background: red;
                 background: -webkit-linear-gradient(left, red, orange , yellow, green, cyan, blue, violet);
                 background: -o-linear-gradient(right, red, orange, yellow, green, cyan, blue, violet);
                 background: -moz-linear-gradient(right, red, orange, yellow, green, cyan, blue, violet);
