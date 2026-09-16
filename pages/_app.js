@@ -10,6 +10,7 @@ class MyApp extends App {
     // Only registered in production to avoid conflicts with Next.js HMR in development
   }
 
+  // Disable auto-add-css for Turbopack compatibility
   config.autoAddCss = false;
 
   render() {
