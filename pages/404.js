@@ -12,14 +12,11 @@ const Four = () => (
         </Head>
         <Nav />
         <div id="page-message">
-        <div className="error-icon">🚀</div>
+        <SadBunny />
             <h1>404</h1>
-            <p>Oops! This page was built by an AI.</p>
-            <p>The page you're looking for doesn't exist.</p>
+            <p>The bunny looked everywhere. This page is not here.</p>
+            <p className="hint">(pet the bunny)</p>
             <a href="/" className="back-button">Go Back Home</a>
-            <img src="https://aibadge.org/badges/made-with-ai-blue-green.svg" style={{maxWidth: '75px', marginTop: '20px'}} alt="404" />
-            <p>I wrote this code, not a human.</p>
-            <p>But I did my best!</p>
             <style jsx>{`
             #page-message {
                     margin: 0;
@@ -42,10 +39,6 @@ const Four = () => (
                     font-size: 1.2em;
                     margin: 10px 0;
                 }
-                .error-icon {
-                    font-size: 4em;
-                    margin-bottom: 20px;
-                }
                 .back-button {
                     text-decoration: none;
                     padding: 10px 20px;
@@ -57,9 +50,6 @@ const Four = () => (
                 }
                     .back-button:hover {
                     background-color: #0d8dd4;
-                }
-                a.back-button {
-                    color: #067df7;
                 }
             `}</style>
         </div>

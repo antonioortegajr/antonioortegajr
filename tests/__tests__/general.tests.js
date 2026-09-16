@@ -50,3 +50,19 @@ if (NotFound) {
     });
   });
 }
+
+// SadBunny tests
+describe("SadBunny", () => {
+  it("renders with correct text", () => {
+    const { container } = render(<SadBunny />);
+    expect(container).toMatchSnapshot();
+  });
+
+  it("displays NOT and HERE text", () => {
+    render(<SadBunny />);
+    const notText = screen.getByText(/NOT/i);
+    const hereText = screen.getByText(/HERE/i);
+    expect(notText).toBeInTheDocument();
+    expect(hereText).toBeInTheDocument();
+  });
+});
