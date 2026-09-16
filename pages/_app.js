@@ -11,7 +11,7 @@ class MyApp extends App {
   }
 
   // Disable auto-add-css for Turbopack compatibility
-  config.autoAddCss = false;
+  config.autoAddCss = false; // eslint-disable-next-line no-unused-vars
 
   render() {
     const { Component, pageProps } = this.props;
