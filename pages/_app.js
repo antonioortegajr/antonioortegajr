@@ -4,14 +4,15 @@ import Head from 'next/head';
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
+// Stylesheet is imported above; stop Font Awesome injecting it again at runtime
+// (avoids icon flash on reload and keeps the Turbopack build happy).
+config.autoAddCss = false;
+
 class MyApp extends App {
   componentDidMount() {
     // Service worker registration is handled in _document.js
     // Only registered in production to avoid conflicts with Next.js HMR in development
   }
-
-  // Disable auto-add-css for Turbopack compatibility
-  config.autoAddCss = false; // eslint-disable-next-line no-unused-vars
 
   render() {
     const { Component, pageProps } = this.props;
