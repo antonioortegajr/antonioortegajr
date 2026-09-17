@@ -1,10 +1,5 @@
-import React from 'react'
-import './RainbowText.css'
-
-const RainbowText = ({ text }) => {
-    return (
-        <span className="rainbow">{text}</span>
-    )
-}
+const RainbowText = ({ text }) => (
+    <span className="rainbow">{text}</span>
+)
 
 export default RainbowText
