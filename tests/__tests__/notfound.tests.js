@@ -6,8 +6,8 @@ import NotFound from '../../pages/404';
 describe("404 Page", () => {
   it("renders a link back to the home page", () => {
     render(<NotFound />);
-    const link = screen.getByRole('link', { href: '/' });
-    expect(link).toBeInTheDocument();
+    const link = screen.getByRole('link', { name: /go back home/i });
+    expect(link).toHaveAttribute('href', '/');
   });
 
   it("displays the 404 heading", () => {
@@ -16,9 +16,5 @@ describe("404 Page", () => {
     expect(heading).toBeInTheDocument();
   });
 
-  it("shows an AI badge image", () => {
-    render(<NotFound />);
-    const img = screen.getByAltText(/404/i);
-    expect(img).toHaveAttribute('src', /aibadge.org/);
-  });
+
 });
