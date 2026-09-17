@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/Nav'
+import SadBunny from '../components/SadBunny'
 import Script from 'next/script'
 const Four = () => (
     <div>
