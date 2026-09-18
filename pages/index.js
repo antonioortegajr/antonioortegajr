@@ -44,7 +44,7 @@ I am an Applications Reliability Engineer at <a className="rainbow" href="https:
           icon={faMeetup}
         />
         <Card
-          href='https://hackforacause.org'
+          href='https://github.com/Hack4Eugene'
           description='I am a contributing organizer for a local civic-themed hackathon.'
           title='Hack for a Cause '
         />
