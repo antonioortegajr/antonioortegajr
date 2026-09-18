@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/Nav'
+import SadBunny from '../components/SadBunny'
 import Script from 'next/script'
 const Four = () => (
     <div>
@@ -12,14 +13,11 @@ const Four = () => (
         </Head>
         <Nav />
         <div id="page-message">
-        <div className="error-icon">🚀</div>
+        <SadBunny />
             <h1>404</h1>
-            <p>Oops! Looks like you're lost in space.</p>
-            <p>The page you're looking for isn't here.</p>
+            <p>The bunny looked everywhere. This page is not here.</p>
+            <p className="hint">(pet the bunny)</p>
             <a href="/" className="back-button">Go Back Home</a>
-            <img src="https://aibadge.org/badges/made-with-ai-blue-green.svg" style={{maxWidth: '75px', marginTop: '20px'}} alt="404" />
-            <p>This lame 404 page was generated via ChatGPT.</p>
-            <p>Our jobs are safe.</p>
             <style jsx>{`
             #page-message {
                     margin: 0;
@@ -42,10 +40,6 @@ const Four = () => (
                     font-size: 1.2em;
                     margin: 10px 0;
                 }
-                .error-icon {
-                    font-size: 4em;
-                    margin-bottom: 20px;
-                }
                 .back-button {
                     text-decoration: none;
                     padding: 10px 20px;
@@ -57,9 +51,6 @@ const Four = () => (
                 }
                     .back-button:hover {
                     background-color: #0d8dd4;
-                }
-                a.back-button {
-                    color: #067df7;
                 }
             `}</style>
         </div>

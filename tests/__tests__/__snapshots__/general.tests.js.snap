@@ -124,51 +124,75 @@ exports[`404 Page matches the snapshot 1`] = `
       </ul>
     </nav>
     <div
-      class="jsx-60520bf242ac8bd8"
+      class="jsx-aecbb47472a8d85"
       id="page-message"
     >
       <div
-        class="jsx-60520bf242ac8bd8 error-icon"
+        class="jsx-3ec7f81497339c90"
       >
-        🚀
+        <code
+          class="jsx-3ec7f81497339c90 rainbow"
+          id="bunny"
+        >
+          |￣￣￣￣￣￣|
+          <br
+            class="jsx-3ec7f81497339c90"
+          />
+          |   404     |
+          <br
+            class="jsx-3ec7f81497339c90"
+          />
+          |  NOT      |
+          <br
+            class="jsx-3ec7f81497339c90"
+          />
+          |  HERE     |
+          <br
+            class="jsx-3ec7f81497339c90"
+          />
+          |＿＿＿＿＿_|
+          <br
+            class="jsx-3ec7f81497339c90"
+          />
+                 || 
+          <br
+            class="jsx-3ec7f81497339c90"
+          />
+          (/__\\) || 
+          <br
+            class="jsx-3ec7f81497339c90"
+          />
+          (;ㅅ;) ||
+          <br
+            class="jsx-3ec7f81497339c90"
+          />
+          / 　 づ
+          <br
+            class="jsx-3ec7f81497339c90"
+          />
+        </code>
       </div>
       <h1
-        class="jsx-60520bf242ac8bd8"
+        class="jsx-aecbb47472a8d85"
       >
         404
       </h1>
       <p
-        class="jsx-60520bf242ac8bd8"
+        class="jsx-aecbb47472a8d85"
       >
-        Oops! Looks like you're lost in space.
+        The bunny looked everywhere. This page is not here.
       </p>
       <p
-        class="jsx-60520bf242ac8bd8"
+        class="jsx-aecbb47472a8d85 hint"
       >
-        The page you're looking for isn't here.
+        (pet the bunny)
       </p>
       <a
-        class="jsx-60520bf242ac8bd8 back-button"
+        class="jsx-aecbb47472a8d85 back-button"
         href="/"
       >
         Go Back Home
       </a>
-      <img
-        alt="404"
-        class="jsx-60520bf242ac8bd8"
-        src="https://aibadge.org/badges/made-with-ai-blue-green.svg"
-        style="max-width: 75px; margin-top: 20px;"
-      />
-      <p
-        class="jsx-60520bf242ac8bd8"
-      >
-        This lame 404 page was generated via ChatGPT.
-      </p>
-      <p
-        class="jsx-60520bf242ac8bd8"
-      >
-        Our jobs are safe.
-      </p>
     </div>
   </div>
 </div>
@@ -177,7 +201,7 @@ exports[`404 Page matches the snapshot 1`] = `
 exports[`Home Page matches the snapshot 1`] = `
 <div>
   <div
-    class="jsx-c163f45a9b619e59"
+    class="jsx-bc1b37aff4a9e9d7"
   >
     <nav
       class="jsx-18eed197f0591e0e"
@@ -300,10 +324,10 @@ exports[`Home Page matches the snapshot 1`] = `
       </ul>
     </nav>
     <div
-      class="jsx-c163f45a9b619e59 hero"
+      class="jsx-bc1b37aff4a9e9d7 hero"
     >
       <div
-        class="jsx-c163f45a9b619e59"
+        class="jsx-bc1b37aff4a9e9d7"
         id="hero-images"
       >
         <div
@@ -313,66 +337,66 @@ exports[`Home Page matches the snapshot 1`] = `
             alt="antonio ortega jr"
             class="jsx-8c3a3d331b767a0a"
             id="me"
-            src="/me.jpg"
+            src="/me_ivy.png"
           />
         </div>
         <div
-          class="jsx-5fe3018a89d5d3a"
+          class="jsx-4da9528ccda2a158"
         >
           <code
-            class="jsx-5fe3018a89d5d3a rainbow"
+            class="jsx-4da9528ccda2a158 rainbow"
             id="bunny"
           >
             |￣￣￣￣￣￣|
             <br
-              class="jsx-5fe3018a89d5d3a"
+              class="jsx-4da9528ccda2a158"
             />
             |    What     |
             <br
-              class="jsx-5fe3018a89d5d3a"
+              class="jsx-4da9528ccda2a158"
             />
             |    Do       | 
             <br
-              class="jsx-5fe3018a89d5d3a"
+              class="jsx-4da9528ccda2a158"
             />
             |  I DO     |
             <br
-              class="jsx-5fe3018a89d5d3a"
+              class="jsx-4da9528ccda2a158"
             />
             |＿＿＿＿＿_|
             <br
-              class="jsx-5fe3018a89d5d3a"
+              class="jsx-4da9528ccda2a158"
             />
                    || 
             <br
-              class="jsx-5fe3018a89d5d3a"
+              class="jsx-4da9528ccda2a158"
             />
             (\\__/) || 
             <br
-              class="jsx-5fe3018a89d5d3a"
+              class="jsx-4da9528ccda2a158"
             />
             (•ㅅ•) ||
             <br
-              class="jsx-5fe3018a89d5d3a"
+              class="jsx-4da9528ccda2a158"
             />
             / 　 づ
             <br
-              class="jsx-5fe3018a89d5d3a"
+              class="jsx-4da9528ccda2a158"
             />
           </code>
         </div>
       </div>
       <h1
-        class="jsx-c163f45a9b619e59 title"
+        class="jsx-bc1b37aff4a9e9d7 title"
       >
         Antonio Ortega Jr
       </h1>
       <p
-        class="jsx-c163f45a9b619e59 description"
+        class="jsx-bc1b37aff4a9e9d7 description"
       >
         I am an Applications Reliability Engineer at 
         <a
-          class="jsx-c163f45a9b619e59 rainbow"
+          class="jsx-bc1b37aff4a9e9d7 rainbow"
           href="https://natera.com"
         >
           Natera
@@ -380,12 +404,12 @@ exports[`Home Page matches the snapshot 1`] = `
         , living in Eugene, Oregon.
       </p>
       <p
-        class="jsx-c163f45a9b619e59 description"
+        class="jsx-bc1b37aff4a9e9d7 description"
       >
         I write code and use cloud technologies like AWS. I also volunteer for code things.
       </p>
       <div
-        class="jsx-c163f45a9b619e59 row"
+        class="jsx-bc1b37aff4a9e9d7 row"
       >
         <a
           class="jsx-32788be9e9e2260c card"
@@ -475,35 +499,35 @@ exports[`Home Page matches the snapshot 1`] = `
         </a>
       </div>
       <h2
-        class="jsx-c163f45a9b619e59"
+        class="jsx-bc1b37aff4a9e9d7"
       >
         About Me
       </h2>
       <div
-        class="jsx-c163f45a9b619e59 row"
+        class="jsx-bc1b37aff4a9e9d7 row"
       >
         <p
-          class="jsx-c163f45a9b619e59"
+          class="jsx-bc1b37aff4a9e9d7"
         >
           I started coding on a Commodore 64 as a kid. I enjoy learning and helping others learn about technology. I host a monthly meetup in Eugene, OR, speak about tech around town, and work remotely as a senior engineer.
         </p>
       </div>
       <h2
-        class="jsx-c163f45a9b619e59"
+        class="jsx-bc1b37aff4a9e9d7"
       >
         Tools I Use Often
       </h2>
       <div
-        class="jsx-c163f45a9b619e59 row"
+        class="jsx-bc1b37aff4a9e9d7 row"
       >
         <p
-          class="jsx-c163f45a9b619e59"
+          class="jsx-bc1b37aff4a9e9d7"
         >
           I use these tools often in my job and side projects. While I use many other technologies, these are the ones I use most frequently at the moment. I also enjoy experimenting with other technologies like mobile apps and AI.
         </p>
       </div>
       <div
-        class="jsx-c163f45a9b619e59 row"
+        class="jsx-bc1b37aff4a9e9d7 row"
         id="tech-icons"
       >
         <svg
@@ -523,17 +547,17 @@ exports[`Home Page matches the snapshot 1`] = `
         </svg>
         <svg
           aria-hidden="true"
-          class="svg-inline--fa fa-git-alt fa-3x "
-          data-icon="git-alt"
-          data-prefix="fab"
+          class="jsx-bc1b37aff4a9e9d7"
+          fill="currentColor"
           focusable="false"
           role="img"
-          viewBox="0 0 448 512"
+          style="font-size: 3em; height: 1em; width: 1em;"
+          viewBox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"
-            fill="currentColor"
+            class="jsx-bc1b37aff4a9e9d7"
+            d="m19.6 66.5 19.7-11 .3-1-.3-.5h-1l-3.3-.2-11.2-.3L14 53l-9.5-.5-2.4-.5L0 49l.2-1.5 2-1.3 2.9.2 6.3.5 9.5.6 6.9.4L38 49.1h1.6l.2-.7-.5-.4-.4-.4L29 41l-10.6-7-5.6-4.1-3-2-1.5-2-.6-4.2 2.7-3 3.7.3.9.2 3.7 2.9 8 6.1L37 36l1.5 1.2.6-.4.1-.3-.7-1.1L33 25l-6-10.4-2.7-4.3-.7-2.6c-.3-1-.4-2-.4-3l3-4.2L28 0l4.2.6L33.8 2l2.6 6 4.1 9.3L47 29.9l2 3.8 1 3.4.3 1h.7v-.5l.5-7.2 1-8.7 1-11.2.3-3.2 1.6-3.8 3-2L61 2.6l2 2.9-.3 1.8-1.1 7.7L59 27.1l-1.5 8.2h.9l1-1.1 4.1-5.4 6.9-8.6 3-3.5L77 13l2.3-1.8h4.3l3.1 4.7-1.4 4.9-4.4 5.6-3.7 4.7-5.3 7.1-3.2 5.7.3.4h.7l12-2.6 6.4-1.1 7.6-1.3 3.5 1.6.4 1.6-1.4 3.4-8.2 2-9.6 2-14.3 3.3-.2.1.2.3 6.4.6 2.8.2h6.8l12.6 1 3.3 2 1.9 2.7-.3 2-5.1 2.6-6.8-1.6-16-3.8-5.4-1.3h-.8v.4l4.6 4.5 8.3 7.5L89 80.1l.5 2.4-1.3 2-1.4-.2-9.2-7-3.6-3-8-6.8h-.5v.7l1.8 2.7 9.8 14.7.5 4.5-.7 1.4-2.6 1-2.7-.6-5.8-8-6-9-4.7-8.2-.5.4-2.9 30.2-1.3 1.5-3 1.2-2.5-2-1.4-3 1.4-6.2 1.6-8 1.3-6.4 1.2-7.9.7-2.6v-.2H49L43 72l-9 12.3-7.2 7.6-1.7.7-3-1.5.3-2.8L24 86l10-12.8 6-7.9 4-4.6-.1-.5h-.3L17.2 77.4l-4.7.6-2-2 .2-3 1-1 8-5.5Z"
           />
         </svg>
         <svg
@@ -583,15 +607,29 @@ exports[`Home Page matches the snapshot 1`] = `
         </svg>
       </div>
       <h2
-        class="jsx-c163f45a9b619e59"
+        class="jsx-bc1b37aff4a9e9d7"
+      >
+        AI Integration
+      </h2>
+      <div
+        class="jsx-bc1b37aff4a9e9d7 row"
+      >
+        <p
+          class="jsx-bc1b37aff4a9e9d7"
+        >
+          As a software engineer I am focused on making AI help with and do real work. I spend my time connecting models from OpenAI and Claude to build real integrations, designing the guardrails that keep things safe and reliable. I love building those agentic systems, and seeing the real word productivity gains, I get hands-on running local models on small hardware. It keeps me constantly curious about where AI is headed.
+        </p>
+      </div>
+      <h2
+        class="jsx-bc1b37aff4a9e9d7"
       >
         When I'm Not Coding
       </h2>
       <div
-        class="jsx-c163f45a9b619e59 row"
+        class="jsx-bc1b37aff4a9e9d7 row"
       >
         <p
-          class="jsx-c163f45a9b619e59"
+          class="jsx-bc1b37aff4a9e9d7"
         >
           You can find me at the local comic book shop or watching sports. I also speak about tech, and you can find my latest talk on YouTube. If you have been to a Eugene Web Devs event and want to get in contact with me, use one of the social links at the top of the page.
         </p>

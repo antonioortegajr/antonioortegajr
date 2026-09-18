@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Home from '../../pages/index';
+import SadBunny from '../../components/SadBunny';
 
 // these tests are all AI generated
 
@@ -50,3 +51,19 @@ if (NotFound) {
     });
   });
 }
+
+// SadBunny tests
+describe("SadBunny", () => {
+  it("renders with correct text", () => {
+    const { container } = render(<SadBunny />);
+    expect(container).toMatchSnapshot();
+  });
+
+  it("displays NOT and HERE text", () => {
+    render(<SadBunny />);
+    const notText = screen.getByText(/NOT/i);
+    const hereText = screen.getByText(/HERE/i);
+    expect(notText).toBeInTheDocument();
+    expect(hereText).toBeInTheDocument();
+  });
+});
