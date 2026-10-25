@@ -14,6 +14,31 @@ import {
   faMeetup
 } from '@fortawesome/free-brands-svg-icons'
 
+const profilePageData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Antonio Ortega Jr',
+    url: 'https://antonioortegajr.com/',
+    image: 'https://antonioortegajr.com/me_ivy.png',
+    jobTitle: 'Applications Reliability Engineer',
+    worksFor: { '@type': 'Organization', name: 'Natera', url: 'https://natera.com' },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Eugene',
+      addressRegion: 'OR',
+      addressCountry: 'US'
+    },
+    sameAs: [
+      'https://github.com/antonioortegajr',
+      'https://www.linkedin.com/in/antonioortegajr/',
+      'https://facebook.com/antonioortegajr',
+      'https://twitter.com/antonioortegajr'
+    ]
+  }
+}
+
 const Home = () => (
   <div>
     <Head>
@@ -21,6 +46,23 @@ const Home = () => (
       <title>Antonio Ortega Jr</title>
       <link rel='icon' href='/favicon.ico' />
       <meta name='description' content='Antonio Ortega Jr. I write code and use things like aws.' />
+      <link rel='canonical' href='https://antonioortegajr.com/' />
+      <meta property='og:type' content='profile' />
+      <meta property='og:title' content='Antonio Ortega Jr' />
+      <meta property='og:description' content='Antonio Ortega Jr. I write code and use things like aws.' />
+      <meta property='og:url' content='https://antonioortegajr.com/' />
+      <meta property='og:image' content='https://antonioortegajr.com/me_ivy.png' />
+      <meta property='og:image:width' content='150' />
+      <meta property='og:image:height' content='150' />
+      <meta property='og:image:alt' content='Antonio Ortega Jr' />
+      <meta name='twitter:card' content='summary' />
+      <meta name='twitter:title' content='Antonio Ortega Jr' />
+      <meta name='twitter:description' content='Antonio Ortega Jr. I write code and use things like aws.' />
+      <meta name='twitter:image' content='https://antonioortegajr.com/me_ivy.png' />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageData) }}
+      />
     </Head>
     <Nav />
 
