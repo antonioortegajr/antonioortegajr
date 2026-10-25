@@ -42,7 +42,6 @@ const profilePageData = {
 const Home = () => (
   <div>
     <Head>
-      <html lang='lang="en-US"' />
       <title>Antonio Ortega Jr</title>
       <link rel='icon' href='/favicon.ico' />
       <meta name='description' content='Antonio Ortega Jr. I write code and use things like aws.' />
