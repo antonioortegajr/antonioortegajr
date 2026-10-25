@@ -330,16 +330,27 @@ exports[`Home Page matches the snapshot 1`] = `
         class="jsx-bc1b37aff4a9e9d7"
         id="hero-images"
       >
-        <div
-          class="jsx-8c3a3d331b767a0a"
+        <figure
+          class="jsx-a47f4dc34d4d2cce"
         >
           <img
-            alt="antonio ortega jr"
-            class="jsx-8c3a3d331b767a0a"
+            alt="Painted portrait of Antonio Ortega Jr by Alysa Brown"
+            class="jsx-a47f4dc34d4d2cce"
             id="me"
             src="/me_ivy.png"
           />
-        </div>
+          <figcaption
+            class="jsx-a47f4dc34d4d2cce"
+          >
+            Portrait by 
+            <a
+              class="jsx-a47f4dc34d4d2cce"
+              href="https://alysabrown.com/"
+            >
+              Alysa Brown
+            </a>
+          </figcaption>
+        </figure>
         <div
           class="jsx-4da9528ccda2a158"
         >
@@ -635,6 +646,56 @@ exports[`Home Page matches the snapshot 1`] = `
         </p>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`SadBunny renders with correct text 1`] = `
+<div>
+  <div
+    class="jsx-3ec7f81497339c90"
+  >
+    <code
+      class="jsx-3ec7f81497339c90 rainbow"
+      id="bunny"
+    >
+      |￣￣￣￣￣￣|
+      <br
+        class="jsx-3ec7f81497339c90"
+      />
+      |   404     |
+      <br
+        class="jsx-3ec7f81497339c90"
+      />
+      |  NOT      |
+      <br
+        class="jsx-3ec7f81497339c90"
+      />
+      |  HERE     |
+      <br
+        class="jsx-3ec7f81497339c90"
+      />
+      |＿＿＿＿＿_|
+      <br
+        class="jsx-3ec7f81497339c90"
+      />
+             || 
+      <br
+        class="jsx-3ec7f81497339c90"
+      />
+      (/__\\) || 
+      <br
+        class="jsx-3ec7f81497339c90"
+      />
+      (;ㅅ;) ||
+      <br
+        class="jsx-3ec7f81497339c90"
+      />
+      / 　 づ
+      <br
+        class="jsx-3ec7f81497339c90"
+      />
+    </code>
   </div>
 </div>
 `;

@@ -21,7 +21,21 @@ const profilePageData = {
     '@type': 'Person',
     name: 'Antonio Ortega Jr',
     url: 'https://antonioortegajr.com/',
-    image: 'https://antonioortegajr.com/me_ivy.png',
+    image: {
+      '@type': 'ImageObject',
+      contentUrl: 'https://antonioortegajr.com/me_ivy.png',
+      width: 150,
+      height: 150,
+      caption: 'Portrait of Antonio Ortega Jr, painted by Alysa Brown',
+      creator: {
+        '@type': 'Person',
+        '@id': 'https://alysabrown.com/#alysa',
+        name: 'Alysa Brown',
+        url: 'https://alysabrown.com/'
+      },
+      creditText: 'Alysa Brown',
+      copyrightNotice: '© Alysa Brown'
+    },
     jobTitle: 'Applications Reliability Engineer',
     worksFor: { '@type': 'Organization', name: 'Natera', url: 'https://natera.com' },
     address: {
@@ -67,7 +81,12 @@ const Home = () => (
 
     <div className='hero'>
       <div id='hero-images'>
-        <ProfilePic img='/me_ivy.png'/>
+        <ProfilePic
+          img='/me_ivy.png'
+          alt='Painted portrait of Antonio Ortega Jr by Alysa Brown'
+          creditName='Alysa Brown'
+          creditUrl='https://alysabrown.com/'
+        />
         <RainbowBunny />
       </div>
       <h1 className='title'>Antonio Ortega Jr</h1>

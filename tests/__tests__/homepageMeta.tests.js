@@ -17,7 +17,10 @@ describe("Home Page metadata", () => {
     const data = JSON.parse(script.innerHTML);
     expect(data['@type']).toBe('ProfilePage');
     expect(data.mainEntity['@type']).toBe('Person');
-    expect(data.mainEntity.image).toBe('https://antonioortegajr.com/me_ivy.png');
+    expect(data.mainEntity.image['@type']).toBe('ImageObject');
+    expect(data.mainEntity.image.contentUrl).toBe('https://antonioortegajr.com/me_ivy.png');
+    expect(data.mainEntity.image.creator.name).toBe('Alysa Brown');
+    expect(data.mainEntity.image.creator['@id']).toBe('https://alysabrown.com/#alysa');
   });
 
   it("renders Open Graph image meta tag", () => {
