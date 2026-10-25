@@ -25,6 +25,13 @@ const ProfilePic = ({ img, alt = 'antonio ortega jr', creditName, creditUrl }) =
         color: #c5c3c9;
         margin-top: 0.5em;
       }
+      figcaption a {
+        color: inherit;
+        text-decoration: underline;
+      }
+      figcaption a:hover {
+        text-decoration: none;
+      }
     `}</style>
   </figure>
 )

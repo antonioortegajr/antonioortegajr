@@ -331,20 +331,20 @@ exports[`Home Page matches the snapshot 1`] = `
         id="hero-images"
       >
         <figure
-          class="jsx-a47f4dc34d4d2cce"
+          class="jsx-24d3b6adb873fec"
         >
           <img
             alt="Painted portrait of Antonio Ortega Jr by Alysa Brown"
-            class="jsx-a47f4dc34d4d2cce"
+            class="jsx-24d3b6adb873fec"
             id="me"
             src="/me_ivy.png"
           />
           <figcaption
-            class="jsx-a47f4dc34d4d2cce"
+            class="jsx-24d3b6adb873fec"
           >
             Portrait by 
             <a
-              class="jsx-a47f4dc34d4d2cce"
+              class="jsx-24d3b6adb873fec"
               href="https://alysabrown.com/"
             >
               Alysa Brown
