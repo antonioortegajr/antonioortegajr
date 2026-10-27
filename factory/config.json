@@ -1,0 +1,14 @@
+{
+  "base_branch": "main",
+  "max_rounds": 3,
+  "branch_prefix": "agent/issue-",
+  "worktree_root": "../antonioortegajr-factory",
+  "labels": {
+    "queued": "agent:queued",
+    "building": "agent:building",
+    "done": "agent:done",
+    "failed": "agent:failed"
+  },
+  "protected_paths": ["factory/", ".claude/", ".github/workflows/", "AGENTS.md", "CLAUDE.md"],
+  "opencode_model": ""
+}
