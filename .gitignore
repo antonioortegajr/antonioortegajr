@@ -26,3 +26,6 @@ yarn-error.log*
 
 # factory
 /factory/jobs/
+
+# lighthouse
+/.lighthouseci/
