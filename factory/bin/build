@@ -1,0 +1,234 @@
+#!/usr/bin/env bash
+# Build wrapper for factory jobs.
+# Usage: factory/bin/build <issue-number> <round>
+#        factory/bin/build <issue-number> <round> --fix <file>
+set -uo pipefail
+
+usage() {
+  echo "usage: factory/bin/build <issue-number> <round>" >&2
+  echo "       factory/bin/build <issue-number> <round> --fix <file>" >&2
+  exit 2
+}
+
+if [[ $# -lt 2 ]]; then
+  usage
+fi
+
+N="$1"
+ROUND_NUM="$2"
+shift 2
+
+fix_file=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --fix)
+      if [[ $# -lt 2 ]]; then
+        usage
+      fi
+      fix_file="$2"
+      shift 2
+      ;;
+    *)
+      usage
+      ;;
+  esac
+done
+
+if [[ ! "$N" =~ ^[0-9]+$ || ! "$ROUND_NUM" =~ ^[0-9]+$ ]]; then
+  usage
+fi
+
+if [[ -n "$fix_file" ]]; then
+  if [[ ! -f "$fix_file" || ! -r "$fix_file" ]]; then
+    usage
+  fi
+  fix_file="$(cd "$(dirname -- "$fix_file")" && pwd -P)/$(basename -- "$fix_file")"
+elif [[ "$ROUND_NUM" -gt 1 ]]; then
+  usage
+fi
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO="$(cd "$SCRIPT_DIR/../.." && pwd)"
+CONFIG="$REPO/factory/config.json"
+
+if [[ ! -f "$CONFIG" ]]; then
+  echo "error: missing config: $CONFIG" >&2
+  exit 2
+fi
+
+base_branch="$(jq -r '.base_branch' "$CONFIG")"
+branch_prefix="$(jq -r '.branch_prefix' "$CONFIG")"
+worktree_root="$(jq -r '.worktree_root' "$CONFIG")"
+opencode_model="$(jq -r '.opencode_model // ""' "$CONFIG")"
+
+expected_branch="${branch_prefix}${N}"
+WT="$REPO/$worktree_root/issue-$N"
+JOB="$REPO/factory/jobs/issue-$N"
+ROUND="$JOB/round-$ROUND_NUM"
+mkdir -p "$JOB" "$ROUND"
+
+head_before=""
+
+write_build_failed() {
+  local reason="$1"
+  {
+    echo "BUILD: FAILED"
+    echo
+    echo "## Reason"
+    echo "$reason"
+    echo
+    echo "## Commits this round"
+    if [[ -n "$head_before" ]]; then
+      git -C "$WT" log --oneline "${head_before}..HEAD" 2>/dev/null || true
+    fi
+  } > "$ROUND/build.md"
+}
+
+if [[ ! -d "$WT" ]]; then
+  if ! git -C "$REPO" fetch origin "$base_branch"; then
+    write_build_failed "worktree setup: could not fetch origin $base_branch"
+    echo "issue-$N round $ROUND_NUM: BUILD FAILED (worktree setup)"
+    exit 1
+  fi
+
+  if git -C "$REPO" show-ref --verify --quiet "refs/heads/$expected_branch"; then
+    if ! git -C "$REPO" worktree add "$WT" "$expected_branch"; then
+      write_build_failed "worktree setup: could not add worktree for $expected_branch"
+      echo "issue-$N round $ROUND_NUM: BUILD FAILED (worktree setup)"
+      exit 1
+    fi
+  else
+    if ! git -C "$REPO" worktree add -b "$expected_branch" "$WT" "origin/$base_branch"; then
+      write_build_failed "worktree setup: could not create worktree for $expected_branch"
+      echo "issue-$N round $ROUND_NUM: BUILD FAILED (worktree setup)"
+      exit 1
+    fi
+  fi
+
+  if ! (cd "$WT" && npm ci --prefer-offline --no-audit --no-fund); then
+    write_build_failed "worktree setup: npm ci failed"
+    echo "issue-$N round $ROUND_NUM: BUILD FAILED (worktree setup)"
+    exit 1
+  fi
+fi
+
+current_branch="$(git -C "$WT" branch --show-current 2>/dev/null || true)"
+if [[ "$current_branch" != "$expected_branch" ]]; then
+  write_build_failed "worktree branch is '${current_branch}', expected '${expected_branch}'"
+  echo "issue-$N round $ROUND_NUM: BUILD FAILED (wrong branch)"
+  exit 1
+fi
+
+issue_json="$(gh issue view "$N" --json title,body,url)"
+if [[ $? -ne 0 ]]; then
+  write_build_failed "could not read issue #$N"
+  echo "issue-$N round $ROUND_NUM: BUILD FAILED (could not read issue)"
+  exit 1
+fi
+
+issue_title="$(jq -r '.title' <<<"$issue_json")"
+issue_body="$(jq -r '.body' <<<"$issue_json")"
+issue_url="$(jq -r '.url' <<<"$issue_json")"
+
+{
+  echo "# #$N: $issue_title"
+  echo "$issue_url"
+  echo
+  echo "$issue_body"
+} > "$JOB/issue.md"
+
+if [[ "$ROUND_NUM" -eq 1 ]]; then
+  prompt_file="$REPO/factory/prompts/build.md"
+else
+  prompt_file="$REPO/factory/prompts/fix.md"
+fi
+
+if [[ ! -f "$prompt_file" ]]; then
+  write_build_failed "missing prompt: $prompt_file"
+  echo "issue-$N round $ROUND_NUM: BUILD FAILED (missing prompt)"
+  exit 1
+fi
+
+sed \
+  -e "s|{{ISSUE}}|$N|g" \
+  -e "s|{{BRANCH}}|$expected_branch|g" \
+  -e "s|{{ROUND}}|$ROUND_NUM|g" \
+  "$prompt_file" > "$ROUND/prompt.md"
+
+head_before="$(git -C "$WT" rev-parse HEAD)"
+
+opencode_args=(
+  run
+  --dir "$WT"
+  --title "issue-$N round-$ROUND_NUM"
+  -f "$JOB/issue.md"
+)
+if [[ -n "$fix_file" ]]; then
+  opencode_args+=(-f "$fix_file")
+fi
+if [[ -n "$opencode_model" ]]; then
+  opencode_args+=(-m "$opencode_model")
+fi
+opencode_args+=("$(cat "$ROUND/prompt.md")")
+
+opencode "${opencode_args[@]}" > "$ROUND/opencode.log" 2>&1
+opencode_rc=$?
+
+reasons=()
+dirty="$(git -C "$WT" status --porcelain)"
+head_after="$(git -C "$WT" rev-parse HEAD 2>/dev/null || true)"
+
+if [[ $opencode_rc -ne 0 ]]; then
+  reasons+=("opencode exited $opencode_rc")
+fi
+if [[ -n "$dirty" ]]; then
+  dirty_files="$(tr '\n' ',' <<<"$dirty" | sed 's/,$//')"
+  reasons+=("dirty tree: $dirty_files")
+fi
+if [[ "$head_after" == "$head_before" ]]; then
+  reasons+=("no new commits")
+fi
+
+if [[ ${#reasons[@]} -eq 0 ]]; then
+  {
+    echo "BUILD: DONE"
+    echo
+    echo "## Reason"
+    echo "None."
+    echo
+    echo "## Commits this round"
+    git -C "$WT" log --oneline "${head_before}..HEAD"
+  } > "$ROUND/build.md"
+
+  commit_count="$(git -C "$WT" rev-list --count "${head_before}..HEAD")"
+  if [[ "$commit_count" -eq 1 ]]; then
+    echo "issue-$N round $ROUND_NUM: BUILD DONE (1 commit)"
+  else
+    echo "issue-$N round $ROUND_NUM: BUILD DONE ($commit_count commits)"
+  fi
+  exit 0
+fi
+
+reason_text=""
+for reason in "${reasons[@]}"; do
+  if [[ -z "$reason_text" ]]; then
+    reason_text="$reason"
+  else
+    reason_text="$reason_text; $reason"
+  fi
+done
+
+write_build_failed "$reason_text"
+
+if [[ -n "$dirty" ]]; then
+  short_reason="dirty tree"
+elif [[ $opencode_rc -ne 0 ]]; then
+  short_reason="opencode exit $opencode_rc"
+elif [[ "$head_after" == "$head_before" ]]; then
+  short_reason="no new commits"
+else
+  short_reason="failed"
+fi
+
+echo "issue-$N round $ROUND_NUM: BUILD FAILED ($short_reason)"
+exit 1
