@@ -50,13 +50,13 @@ Claude Code does not write application code. It runs the factory, which pushes O
 ## Feature / fix workflow
 
 1. **Scope.** Claude talks the request through with the user and breaks it into one issue per PR-sized change.
-2. **Write the ticket.** Claude creates the issue with `gh issue create --label agent:queued`. The body must stand on its own, since OpenCode has no chat context:
+2. **Write the ticket.** Claude creates the issue with a type label (`enhancement`, `bug` or `documentation`) and **without** `agent:queued`. The Pi 5 background pipeline is offline, so `agent:queued` is only added when the user asks for it. The body must stand on its own, since OpenCode has no chat context:
    - The goal and the reason for it
    - The exact files, components, or lines involved, plus any error text
    - Acceptance criteria
    - Verify commands (`npm test`, `npm run build`, manual checks)
    - What is out of scope, with links to related issues so work doesn't overlap
-3. **Build.** `/factory run` (all `agent:queued` issues, oldest first) or `/factory issue <n>`. `factory/bin/build` runs OpenCode in a worktree at `../antonioortegajr-factory/issue-<n>` on `agent/issue-<n>`.
+3. **Build.** `/factory issue <n>` (any issue, queued or not), or `/factory run` for everything the user has labeled `agent:queued` (oldest first). `factory/bin/build` runs OpenCode in a worktree at `../antonioortegajr-factory/issue-<n>` on `agent/issue-<n>`.
 4. **Gate + review.** `factory/bin/gate` runs `factory/checks.sh` (`npm ci`, `npm test -- --ci`, `npm run build`) and rejects edits to protected paths. Failures go back to OpenCode with the log. Once the gate passes, the branch is pushed, a draft PR (`Closes #<n>`) is opened, and the `pr-reviewer` subagent reviews it. CHANGES go back to OpenCode. There are at most 3 rounds in total. PASS → PR marked ready and labeled `agent:done`. Rounds exhausted → `agent:failed`.
 5. **Merge.** Only the user merges. Agents never merge PRs or push to `main`.
 
@@ -64,19 +64,19 @@ Claude Code does not write application code. It runs the factory, which pushes O
 
 See `docs/factory.md` for the full how-to.
 
-If a fix or improvement comes up during review that is out of scope, Claude files it as a new `agent:queued` issue instead of growing the current PR.
+If a fix or improvement comes up during review that is out of scope, Claude files it as a new issue instead of growing the current PR.
 
 ## Labels
 
 | Label | Meaning |
 |---|---|
-| `agent:queued` | Ready for the implementing agent to pick up |
+| `agent:queued` | Queued for automatic pickup (`/factory run` or the Pi 5 pipeline). Only added when the user asks; the Pi 5 pipeline is currently offline |
 | `agent:opencode` | Route this issue to OpenCode specifically |
 | `agent:building` | The factory is working on it (claimed) |
 | `agent:done` | PR is ready and passed review |
 | `agent:failed` | Agent couldn't finish; no ready PR |
 
-Issues without `agent:queued` are not picked up.
+Issues without `agent:queued` are only built when someone runs `/factory issue <n>`.
 
 ## Git conventions
 

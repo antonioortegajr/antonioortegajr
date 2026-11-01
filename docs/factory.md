@@ -3,7 +3,7 @@
 The factory turns a labeled GitHub issue into a reviewed draft PR without a human writing code. Claude Code orchestrates, OpenCode implements in an isolated worktree, `factory/bin/gate` decides whether the change is acceptable, and the `pr-reviewer` subagent judges it. You merge.
 
 ```
-issue (agent:queued) → bin/build (OpenCode) → bin/gate (npm ci/test/build, protected paths)
+issue → bin/build (OpenCode) → bin/gate (npm ci/test/build, protected paths)
      FAIL → OpenCode fix round ┘   PASS → push, draft PR → pr-reviewer (Claude, sonnet)
      CHANGES → OpenCode fix round → gate …     PASS → PR ready, agent:done → you merge
 ```
@@ -19,11 +19,13 @@ issue (agent:queued) → bin/build (OpenCode) → bin/gate (npm ci/test/build, p
 
 ## Commands (in Claude Code)
 
-- `/factory run` — build every `agent:queued` issue, oldest first.
+- `/factory run` — build the issues the user has labeled `agent:queued`, oldest first.
 - `/factory issue <n>` — build one issue, queued or not.
 - `/factory <feature>` — scope the request, write the issue, offer to build it.
 - `/factory rework <n>` — send your PR review comments back to OpenCode.
 - `/factory clean` — remove worktrees and job folders of closed issues.
+
+Issues are created without `agent:queued`, because the Pi 5 pipeline is offline. Use `/factory issue <n>`.
 
 Under the hood: `factory/bin/build <n> <round>` (add `--fix <file>` for later rounds) and `factory/bin/gate <n> <round>`. `factory/checks.sh` runs `npm ci`, `npm test -- --ci`, and `npm run build`.
 
