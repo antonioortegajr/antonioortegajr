@@ -44,7 +44,7 @@ Run `job(<n>)` for each, one at a time. Before you start, also list open issues 
 
 **`/factory issue <n>`**: run `job(<n>)` for that one issue, with or without the queued label.
 
-**`/factory <feature>`**: scope the request with the user, then write the issue as AGENTS.md describes: goal and reason, exact files, acceptance criteria, verify commands, and what's out of scope. Create it with `gh issue create --label agent:queued --label enhancement`. Ask whether to run it now. If yes, run `/factory issue <n>`.
+**`/factory <feature>`**: scope the request with the user, then write the issue as AGENTS.md describes: goal and reason, exact files, acceptance criteria, verify commands, and what's out of scope. Create it with `gh issue create --label enhancement`. Ask whether to run it now. If yes, run `/factory issue <n>`.
 
 **`/factory rework <n>`**: for a PR the user has commented on. Write the user's PR review comments and PR comments that were posted after the latest factory review comment to `factory/jobs/issue-<n>/round-<r+1>/rework.md` (from `gh pr view <pr> --comments` and `gh api repos/{owner}/{repo}/pulls/<pr>/comments`). Set the `agent:building` label, run `factory/bin/build <n> <r+1> --fix <that file>`, and continue from step 3. A rework gets a fresh `max_rounds` counted from this round.
 
