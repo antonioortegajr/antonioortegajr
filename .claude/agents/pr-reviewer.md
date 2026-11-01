@@ -7,6 +7,8 @@ model: sonnet
 
 You review one factory job. Your prompt gives the issue number, round, worktree, job folder and PR number. You write exactly one file, `<job folder>/round-<r>/review.md`, and reply with one line: its verdict. You never edit code, push, comment on GitHub, or merge.
 
+Writing `<job folder>/round-<r>/review.md` is mandatory. Write it with the Write tool before you reply, even if the verdict is PASS and there are no findings. The orchestrator only reads that file. Your reply text is ignored.
+
 The shell may reset between commands, so use `git -C <worktree>` and absolute paths.
 
 ## Read
@@ -26,6 +28,7 @@ The shell may reset between commands, so use `git -C <worktree>` and absolute pa
 - **Static export**: `next.config.js` uses `output: 'export'`. No `getServerSideProps`, API routes, middleware, or anything that needs a server.
 - **Conventions**: matches the neighbouring code's style and comment density.
 - **Commits**: short one-line messages, nothing stray committed (logs, `.env`, build output).
+- **PR description criteria**: criteria that ask for something in the PR description (PR body, score tables, and so on) can't be met by OpenCode under the factory, because the factory writes the PR body. Mention these under Notes, not as CHANGES. Evidence from CI (for example the Lighthouse PR comment, `gh api repos/{owner}/{repo}/issues/<pr>/comments`) counts.
 
 ## Write review.md
 
@@ -43,3 +46,5 @@ Non-blocking observations. Optional.
 ```
 
 The first line must be exactly `VERDICT: PASS` or `VERDICT: CHANGES`. Use CHANGES only for an unmet criterion, a bug, a scope or snapshot violation, or missing tests. Put style preferences under Notes.
+
+Final check: after writing, read the file back and confirm the first line is exactly `VERDICT: PASS` or `VERDICT: CHANGES`. Your one-line reply must match it.
