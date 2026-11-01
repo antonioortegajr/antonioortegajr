@@ -169,7 +169,7 @@ fi
 if [[ -n "$opencode_model" ]]; then
   opencode_args+=(-m "$opencode_model")
 fi
-opencode_args+=("$(cat "$ROUND/prompt.md")")
+opencode_args+=(-- "$(cat "$ROUND/prompt.md")")
 
 opencode "${opencode_args[@]}" > "$ROUND/opencode.log" 2>&1
 opencode_rc=$?
