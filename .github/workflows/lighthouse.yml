@@ -1,8 +1,17 @@
 name: Lighthouse
 
+# Two ways to skip this check on pull requests:
+# - Docs-only PRs (changes under docs/ or any .md file) skip automatically, since
+#   they can't affect the built site.
+# - Add the `skip-lighthouse` label to skip the job by hand (e.g. when GitHub or
+#   Lighthouse is having trouble). Adding the label only affects runs started
+#   afterward, so push again to re-run. `workflow_dispatch` has no PR, so it always runs.
 on:
   pull_request:
     branches: ["main"]
+    paths-ignore:
+      - "docs/**"
+      - "**/*.md"
   workflow_dispatch:
 
 permissions:
@@ -11,6 +20,7 @@ permissions:
 
 jobs:
   lighthouse:
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'skip-lighthouse') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
