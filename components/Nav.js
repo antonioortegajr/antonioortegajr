@@ -3,10 +3,10 @@ import SocialLink from "./SocialLink"
 
 const Nav = () => {
   const socialLinks = [
-    { link: "https://github.com/antonioortegajr", icon: faGithub },
-    { link: "https://www.linkedin.com/in/antonioortegajr/", icon: faLinkedin },
-    { link: "https://facebook.com/antonioortegajr", icon: faFacebook },
-    { link: "https://twitter.com/antonioortegajr", icon: faTwitter },
+    { link: "https://github.com/antonioortegajr", icon: faGithub, label: "GitHub" },
+    { link: "https://www.linkedin.com/in/antonioortegajr/", icon: faLinkedin, label: "LinkedIn" },
+    { link: "https://facebook.com/antonioortegajr", icon: faFacebook, label: "Facebook" },
+    { link: "https://twitter.com/antonioortegajr", icon: faTwitter, label: "Twitter" },
   ]
 
   return (
@@ -17,6 +17,7 @@ const Nav = () => {
             key={social.link}
             link={social.link}
             icon={social.icon}
+            label={social.label}
             isFirst={index === 0}
             isLast={index === socialLinks.length - 1}
           />

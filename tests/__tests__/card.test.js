@@ -12,12 +12,13 @@ describe('Card component returns Title and Description', () => {
 
         const testTitle = 'Test Card';
         
-        const { getByText } = render(<Card title={testTitle} description="Card for testing" icon={faGithub} />);
+        const { getByText, getByRole } = render(<Card title={testTitle} description="Card for testing" icon={faGithub} />);
 
         // the component adds an arrow to the end of the title
         const titleAddArrow = testTitle + ' →';
         const title = getByText(titleAddArrow);
         expect(title).toBeInTheDocument();
+        expect(getByRole('heading', { level: 2 })).toHaveTextContent(titleAddArrow);
 
         const description = getByText('Card for testing');
         expect(description).toBeInTheDocument();

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { QRCode } from 'react-qrcode-logo'
 
-const SocialLink = ({link, icon, isFirst, isLast}) => {
+const SocialLink = ({link, icon, label, isFirst, isLast}) => {
     const [showQR, setShowQR] = useState(false)
     const [qrPosition, setQrPosition] = useState("center")
     const linkRef = useRef(null)
@@ -29,18 +29,17 @@ const SocialLink = ({link, icon, isFirst, isLast}) => {
     }, [showQR, isFirst, isLast])
 
     return (
-        <div className="social-link-container">
-            <li>
-                <a 
-                    ref={linkRef}
-                    className="social-link rainbow-hover" 
-                    href={link}
-                    onMouseEnter={() => setShowQR(true)}
-                    onMouseLeave={() => setShowQR(false)}
-                >
-                    <FontAwesomeIcon size='lg' icon={icon} />
-                </a>
-            </li>
+        <li className="social-link-container">
+            <a 
+                ref={linkRef}
+                className="social-link rainbow-hover" 
+                href={link}
+                aria-label={label}
+                onMouseEnter={() => setShowQR(true)}
+                onMouseLeave={() => setShowQR(false)}
+            >
+                <FontAwesomeIcon size='lg' icon={icon} />
+            </a>
             {showQR && (
                 <div className={`qr-code ${qrPosition}`}>
                     <QRCode value={link} size={128} />
@@ -49,8 +48,6 @@ const SocialLink = ({link, icon, isFirst, isLast}) => {
             <style jsx>{`
                 .social-link-container {
                     position: relative;
-                }
-                li {
                     display: flex;
                     padding: 6px 8px;
                 }
@@ -87,7 +84,7 @@ const SocialLink = ({link, icon, isFirst, isLast}) => {
                 }
             `}</style>
     
-        </div>
+        </li>
     )
 }
 
