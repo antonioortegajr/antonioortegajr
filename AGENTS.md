@@ -10,7 +10,9 @@ Personal website for Antonio Ortega Jr. It is a Next.js site (React 18, pages ro
 - `components/`: React components
 - `styles/`, `public/`: CSS and static assets
 - `tests/__tests__/`: Jest + React Testing Library tests
-- `docs/`: site docs (`thisSite.md`, `offline-mode.md`, `github-pages-deployment.md`)
+- `docs/`: site docs (`thisSite.md`, `offline-mode.md`, `github-pages-deployment.md`, `factory.md`)
+- `factory/`: feature factory (`bin/build`, `bin/gate`, `checks.sh`, `prompts/`, `config.json`). `factory/jobs/` is gitignored runtime state
+- `.claude/`: Claude Code skill (`skills/factory/`) and subagent (`agents/pr-reviewer.md`)
 - `.github/workflows/nextjs.yml`: builds and deploys to Pages on every push to `main`
 
 ## Commands
@@ -22,6 +24,16 @@ npm test        # run Jest tests
 npm run build   # production build (this is what CI runs)
 ```
 
+Factory commands (run in Claude Code):
+
+```sh
+/factory run            # build every agent:queued issue, oldest first
+/factory issue <n>      # build one issue, queued or not
+/factory <feature>      # scope a request, write the issue, offer to build it
+/factory rework <n>     # send PR review comments back to OpenCode
+/factory clean          # remove worktrees and job folders of closed issues
+```
+
 Run `npm test` and `npm run build` before you open a PR.
 
 ## Roles
@@ -30,10 +42,10 @@ Work is split between two agents:
 
 | Agent | Role | Writes code? |
 |---|---|---|
-| **Claude Code** | Manager: plans work, writes issues, reviews PRs | **No** |
-| **OpenCode CLI** (on this machine) | Implementer: reads an issue, writes the code, opens a PR | Yes |
+| **Claude Code** | Manager: plans work, writes issues, runs the factory, reviews PRs | **No** |
+| **OpenCode CLI** (on this machine) | Implementer: reads an issue and writes the code | Yes |
 
-Claude Code does not edit application code, push branches, or open implementation PRs. Its output is GitHub issues and PR reviews. The only files it edits directly are repo docs like this one, and only when asked.
+Claude Code does not write application code. It runs the factory, which pushes OpenCode's `agent/issue-<n>` branches and opens draft PRs for them. Claude never pushes to `main` and never merges. Its output is GitHub issues and PR reviews. The only files it edits directly are repo docs like this one, and only when asked.
 
 ## Feature / fix workflow
 
@@ -44,11 +56,13 @@ Claude Code does not edit application code, push branches, or open implementatio
    - Acceptance criteria
    - Verify commands (`npm test`, `npm run build`, manual checks)
    - What is out of scope, with links to related issues so work doesn't overlap
-3. **Implement.** OpenCode picks up the issue: either the local agent pipeline grabs `agent:queued` issues, or Claude runs `/opencode-issue <n>`. OpenCode works on a branch named `agent/issue-<n>` and opens a PR that says `Closes #<n>`.
-4. **Review.** Claude reads the PR with `gh pr view` and `gh pr diff` and checks it against the issue's acceptance criteria. Claude looks for correctness, unrelated changes, missing tests, and build or test failures.
-   - If the PR is clean, Claude tells the user it's ready to merge.
-   - If it needs changes, Claude leaves specific review comments and/or updates the issue so OpenCode can be re-run.
+3. **Build.** `/factory run` (all `agent:queued` issues, oldest first) or `/factory issue <n>`. `factory/bin/build` runs OpenCode in a worktree at `../antonioortegajr-factory/issue-<n>` on `agent/issue-<n>`.
+4. **Gate + review.** `factory/bin/gate` runs `factory/checks.sh` (`npm ci`, `npm test -- --ci`, `npm run build`) and rejects edits to protected paths. Failures go back to OpenCode with the log. Once the gate passes, the branch is pushed, a draft PR (`Closes #<n>`) is opened, and the `pr-reviewer` subagent reviews it. CHANGES go back to OpenCode. There are at most 3 rounds in total. PASS → PR marked ready and labeled `agent:done`. Rounds exhausted → `agent:failed`.
 5. **Merge.** Only the user merges. Agents never merge PRs or push to `main`.
+
+`/factory rework <n>` sends your PR review comments back to OpenCode, and `/factory clean` removes worktrees and job folders of closed issues.
+
+See `docs/factory.md` for the full how-to.
 
 If a fix or improvement comes up during review that is out of scope, Claude files it as a new `agent:queued` issue instead of growing the current PR.
 
@@ -58,8 +72,9 @@ If a fix or improvement comes up during review that is out of scope, Claude file
 |---|---|
 | `agent:queued` | Ready for the implementing agent to pick up |
 | `agent:opencode` | Route this issue to OpenCode specifically |
-| `agent:done` | Agent opened a draft PR; awaiting review |
-| `agent:failed` | Agent couldn't finish; no PR was opened |
+| `agent:building` | The factory is working on it (claimed) |
+| `agent:done` | PR is ready and passed review |
+| `agent:failed` | Agent couldn't finish; no ready PR |
 
 Issues without `agent:queued` are not picked up.
 
