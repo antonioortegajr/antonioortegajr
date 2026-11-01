@@ -2,6 +2,15 @@
 
 Personal website doc: [doc](/docs/thisSite.md)
 
+## ✨ Site Highlights
+- **Static Next.js on GitHub Pages:** exported with `output: 'export'` and deployed by GitHub Actions on every push to `main`.
+- **Works offline:** a service worker caches the site and shows an offline page. It's installable as a PWA. [More](/docs/offline-mode.md)
+- **QR codes on hover:** hover a social icon on desktop to get a scannable QR code for it.
+- **Rainbow touches:** an ASCII sign bunny on the homepage, a sad bunny on the 404 page, and rainbow hover effects.
+- **Accessible and searchable:** Lighthouse accessibility is 100. The homepage has ProfilePage JSON-LD, Open Graph, and canonical tags.
+- **Lighthouse report on every PR:** CI posts the scores as a PR comment.
+- **Built by an agent factory:** Claude Code writes the issues and reviews, OpenCode writes the code, and a script gate checks tests and the build. [More](/docs/factory.md)
+
 ## 🌐 Socials:
  [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/antonioortegajr) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/3114130) 
 
