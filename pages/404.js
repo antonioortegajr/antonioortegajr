@@ -43,14 +43,14 @@ const Four = () => (
                 .back-button {
                     text-decoration: none;
                     padding: 10px 20px;
-                    background-color: #1da1f2;
+                    background-color: #0b6ca3;
                     color: #ffffff;
                     border-radius: 5px;
                     font-size: 1em;
                     transition: background-color 0.3s ease;
                 }
                     .back-button:hover {
-                    background-color: #0d8dd4;
+                    background-color: #075f90;
                 }
             `}</style>
         </div>

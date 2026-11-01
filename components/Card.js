@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Card = ({ href, title, description, icon }) => (
   <a href={href} className="card">
-    <h3>{title} &rarr;</h3>
+    <h2>{title} &rarr;</h2>
     <p style={{color:'#c5c3c9'}}>{description} {icon && <FontAwesomeIcon size='sm' icon={icon} width="0.875em" />}</p>
     <style jsx>{`
     .card {
@@ -19,9 +19,9 @@ const Card = ({ href, title, description, icon }) => (
         border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
         border-image-slice: 1;
       }
-      .card h3 {
+      .card h2 {
         margin: 0;
-        color: #1b5982;
+        color: #4da3d9;
         font-size: 18px;
       }
       .card p {

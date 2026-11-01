@@ -13,4 +13,15 @@ describe('SocialLink component returns a link', () => {
     expect(link).toHaveAttribute('href', 'https://github.com/antonioortegajr');
   });
 
+  it('renders the passed label as the accessible name', () => {
+    const { getByRole } = render(<SocialLink link="https://github.com/antonioortegajr" icon={faGithub} label="GitHub" />);
+    const link = getByRole('link', { name: 'GitHub' });
+    expect(link).toHaveAttribute('aria-label', 'GitHub');
+  });
+
+  it('renders a list item as its root element', () => {
+    const { container } = render(<SocialLink link="https://github.com/antonioortegajr" icon={faGithub} label="GitHub" />);
+    expect(container.firstChild.tagName).toBe('LI');
+  });
+
 });
