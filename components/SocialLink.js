@@ -35,8 +35,12 @@ const SocialLink = ({link, icon, label, isFirst, isLast}) => {
                 className="social-link rainbow-hover" 
                 href={link}
                 aria-label={label}
-                onMouseEnter={() => setShowQR(true)}
-                onMouseLeave={() => setShowQR(false)}
+                onPointerEnter={(event) => {
+                    if (event.pointerType === 'mouse') {
+                        setShowQR(true)
+                    }
+                }}
+                onPointerLeave={() => setShowQR(false)}
             >
                 <FontAwesomeIcon size='lg' icon={icon} />
             </a>
