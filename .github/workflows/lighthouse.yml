@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   lighthouse:
@@ -28,6 +29,7 @@ jobs:
       - name: Write Lighthouse summary
         if: always()
         run: |
+          SUMMARY_FILE="$RUNNER_TEMP/lighthouse-summary.md"
           {
             echo "## Lighthouse report"
             echo
@@ -36,13 +38,36 @@ jobs:
               echo "| --- | --- | --- | --- | --- |"
               jq -r '
                 def score: if . == null then "n/a" else (. * 100 | round | tostring) end;
+                def path_only: gsub("https?://[^/]+"; "");
                 .[] | select(.isRepresentativeRun) |
-                "| \(.url) | \(.summary.performance | score) | \(.summary.accessibility | score) | \(.summary["best-practices"] | score) | \(.summary.seo | score) |"
+                "| \(.url | path_only) | \(.summary.performance | score) | \(.summary.accessibility | score) | \(.summary["best-practices"] | score) | \(.summary.seo | score) |"
               ' .lighthouseci/manifest.json
+              echo
+              echo "[View full run details]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)"
+              echo "Full HTML reports are in the \`lighthouse-reports\` artifact."
             else
               echo "No Lighthouse manifest found."
             fi
-          } >> "$GITHUB_STEP_SUMMARY"
+          } > "$SUMMARY_FILE"
+          cat "$SUMMARY_FILE" >> "$GITHUB_STEP_SUMMARY"
+      - name: Comment Lighthouse scores on PR
+        if: always() && github.event_name == 'pull_request'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SUMMARY_FILE="$RUNNER_TEMP/lighthouse-summary.md"
+          {
+            echo "<!-- lighthouse-report -->"
+            cat "$SUMMARY_FILE"
+          } > "$RUNNER_TEMP/lighthouse-comment.md"
+          COMMENTS=$(gh api "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments" --paginate)
+          COMMENT_ID=$(echo "$COMMENTS" | jq -r '.[] | select(.body | startswith("<!-- lighthouse-report -->")) | .id' | head -n 1)
+          if [ -n "$COMMENT_ID" ] && [ "$COMMENT_ID" != "null" ]; then
+            gh api -X PATCH "repos/${{ github.repository }}/issues/comments/$COMMENT_ID" -f body="$(cat "$RUNNER_TEMP/lighthouse-comment.md")"
+          else
+            gh api -X POST "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments" -f body="$(cat "$RUNNER_TEMP/lighthouse-comment.md")"
+          fi
       - name: Upload Lighthouse reports
         if: always()
         uses: actions/upload-artifact@v7
