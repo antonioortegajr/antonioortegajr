@@ -1,0 +1,52 @@
+name: Lighthouse
+
+on:
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build with Next.js
+        run: npm run build
+      - name: Run Lighthouse CI
+        run: npx --yes @lhci/cli@0.15.x autorun
+      - name: Write Lighthouse summary
+        if: always()
+        run: |
+          {
+            echo "## Lighthouse report"
+            echo
+            if [ -f .lighthouseci/manifest.json ]; then
+              echo "| URL | Performance | Accessibility | Best Practices | SEO |"
+              echo "| --- | --- | --- | --- | --- |"
+              jq -r '
+                def score: if . == null then "n/a" else (. * 100 | round | tostring) end;
+                .[] | select(.isRepresentativeRun) |
+                "| \(.url) | \(.summary.performance | score) | \(.summary.accessibility | score) | \(.summary["best-practices"] | score) | \(.summary.seo | score) |"
+              ' .lighthouseci/manifest.json
+            else
+              echo "No Lighthouse manifest found."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          include-hidden-files: true
